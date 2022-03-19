@@ -41,6 +41,8 @@ public class Order
     [Required]
     public string? PaymentMethod { get; set; }
 
+    public DateTime Timestamp { get; set; } = DateTime.Now;
+
     [Required]
     public string? Status { get; set; }
     public List<OrderProducts>? OrderProducts { get; set; }

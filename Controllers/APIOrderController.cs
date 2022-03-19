@@ -44,35 +44,54 @@ namespace backend.Controllers
         }
 
 
-        // POST: api/APIOrder
+        // POST: api/APIOrder (OrderPostRequest? ?)
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
-        public async Task<ActionResult<Order>> PostOrder(OrderPostRequest OrderPostRequest)
+        public async Task<ActionResult<OrderPostRequest>> PostOrder(OrderPostRequest OrderPostRequest)
         {
-            
-            //Behöver hämta in discount från discount codes
+
+            //Behöver hämta in discount från discount codes och kontrollera datum, tid och kod
             var discountData = from DiscountCodes in _context.DiscountCodes select DiscountCodes;
             decimal discountFactor = 0;
-            decimal totalDiscountedFactor = 1; 
+            decimal totalDiscountedFactor = 1;
+            DateTime dateNow = DateTime.Now;
             foreach (var item in discountData)
             {
-                if (item.Code == OrderPostRequest.Order.DiscountCode)
+                if (item.Code == OrderPostRequest.Order.DiscountCode && item.CampaignStart < dateNow && item.CampaignEnd > dateNow)
                 {
                     discountFactor = item.Discount / 100;
                     totalDiscountedFactor = 1 - discountFactor;
                 }
             }
-            // Behöver skriva produkterr till tabell med Id för order 
-            var OrderProducts = await _context.OrderProducts.ToListAsync(order);
-            //Behöver hämta in moms från produkter och antal från order
-
-            _context.Order.Add(order);
+            //Save instance of order
+            _context.Order.Add(OrderPostRequest.Order);
             await _context.SaveChangesAsync();
 
+
+            // Behöver skriva produkter till tabell med Id för order 
+            foreach (var item in OrderPostRequest.OrderProducts)
+            {
+                _context.OrderProducts.Add(item);
+                await _context.SaveChangesAsync();
+            }
+
+            //Behöver hämta in moms från produkter och antal från order
+            var UpdateOrder = await _context.Order.FindAsync(OrderPostRequest.Order.OrderNumber);
+            var OrderObjects = from OrderProducts in _context.OrderProducts.Where(s => s.OrderId == UpdateOrder.Id) select OrderProducts;
+
+
             //Behöver hämta pris från katalogen
-            return createdObject;
+
+
+            //Uppdatera instans av order med nya priser hämtade från .NET
+
+
+            return OrderPostRequest;
         }
 
+        //Get calls
+        //var context = from CustomerData in _context.CustomerData select CustomerData;
+        //var tastingsData = await _context.TastingData.FindAsync(customerData.TastingId);
 
 
         private bool OrderExists(int id)
