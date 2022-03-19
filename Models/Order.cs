@@ -30,6 +30,8 @@ public class Order
     public decimal? VatTotal { get; set; }
     [Required]
     public decimal? DiscountTotal { get; set; }
+    [Required]
+    public string? DiscountCode { get; set; }
 
     [Required]
     public string? OrderNumber { get; set; }

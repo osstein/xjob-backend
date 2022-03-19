@@ -55,7 +55,7 @@ namespace backend.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,CustomerFirstName,CustomerLastName,CustomerMail,CustomerPhone,CustomerAdress,CustomerZip,CustomerCity,PriceTotal,VatTotal,DiscountTotal,OrderNumber,ReceiptNumber,PaymentMethod,Status")] Order order)
+        public async Task<IActionResult> Create([Bind("Id,CustomerFirstName,CustomerLastName,CustomerMail,CustomerPhone,CustomerAdress,CustomerZip,CustomerCity,PriceTotal,VatTotal,DiscountTotal,DiscountCode,OrderNumber,ReceiptNumber,PaymentMethod,Status")] Order order)
         {
             if (ModelState.IsValid)
             {

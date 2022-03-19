@@ -43,7 +43,7 @@ namespace backend.Controllers
             return orderProducts;
         }
 
-        
+
 
         // POST: api/APIOrderProducts
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
@@ -51,15 +51,22 @@ namespace backend.Controllers
         public async Task<ActionResult<OrderProducts>> PostOrderProducts(OrderProducts orderProducts)
         {
             _context.OrderProducts.Add(orderProducts);
+
+            // Bör gå att integrera i OrderController
+
+
+
             await _context.SaveChangesAsync();
 
             return CreatedAtAction("GetOrderProducts", new { id = orderProducts.Id }, orderProducts);
         }
 
-       
+
         private bool OrderProductsExists(int id)
         {
             return _context.OrderProducts.Any(e => e.Id == id);
         }
     }
 }
+
+

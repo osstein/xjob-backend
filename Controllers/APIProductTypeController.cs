@@ -43,8 +43,7 @@ namespace backend.Controllers
             return productType;
         }
 
-        
-
+       
         private bool ProductTypeExists(int id)
         {
             return _context.ProductType.Any(e => e.Id == id);
