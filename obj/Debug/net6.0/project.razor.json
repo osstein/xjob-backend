@@ -16398,6 +16398,11 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "c:\\xampp\\htdocs\\xjobb\\backend\\Views\\ProductSize\\Details.cshtml",
+      "TargetPath": "Views\\ProductSize\\Details.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "c:\\xampp\\htdocs\\xjobb\\backend\\Views\\_ViewImports.cshtml",
       "TargetPath": "Views\\_ViewImports.cshtml",
       "FileKind": "mvc"
@@ -16425,6 +16430,11 @@
     {
       "FilePath": "c:\\xampp\\htdocs\\xjobb\\backend\\Views\\ProductProperties\\Create.cshtml",
       "TargetPath": "Views\\ProductProperties\\Create.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\xampp\\htdocs\\xjobb\\backend\\Views\\ProductSize\\Edit.cshtml",
+      "TargetPath": "Views\\ProductSize\\Edit.cshtml",
       "FileKind": "mvc"
     },
     {
@@ -16500,6 +16510,11 @@
     {
       "FilePath": "c:\\xampp\\htdocs\\xjobb\\backend\\Views\\CatalogSubCategories\\Edit.cshtml",
       "TargetPath": "Views\\CatalogSubCategories\\Edit.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\xampp\\htdocs\\xjobb\\backend\\Views\\ProductSize\\Delete.cshtml",
+      "TargetPath": "Views\\ProductSize\\Delete.cshtml",
       "FileKind": "mvc"
     },
     {
@@ -16618,6 +16633,11 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "c:\\xampp\\htdocs\\xjobb\\backend\\Views\\ProductSize\\Index.cshtml",
+      "TargetPath": "Views\\ProductSize\\Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "c:\\xampp\\htdocs\\xjobb\\backend\\Views\\DiscountCodes\\Create.cshtml",
       "TargetPath": "Views\\DiscountCodes\\Create.cshtml",
       "FileKind": "mvc"
@@ -16635,6 +16655,11 @@
     {
       "FilePath": "c:\\xampp\\htdocs\\xjobb\\backend\\Views\\Shared\\_ValidationScriptsPartial.cshtml",
       "TargetPath": "Views\\Shared\\_ValidationScriptsPartial.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\xampp\\htdocs\\xjobb\\backend\\Views\\ProductSize\\Create.cshtml",
+      "TargetPath": "Views\\ProductSize\\Create.cshtml",
       "FileKind": "mvc"
     },
     {

@@ -1,7 +1,7 @@
-@model IEnumerable<backend.Models.ProductProperties>
+@model IEnumerable<backend.Models.ProductSize>
 
 @{
- Layout = "_Layout";
+    Layout = "_Layout";
 }
 
 <!DOCTYPE html>
@@ -19,13 +19,7 @@
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.Title)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Text)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Product)
+                @Html.DisplayNameFor(model => model.Size)
             </th>
             <th></th>
         </tr>
@@ -34,13 +28,7 @@
 @foreach (var item in Model) {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.Title)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Text)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Product.Description)
+                @Html.DisplayFor(modelItem => item.Size)
             </td>
             <td>
                 <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |

@@ -28,7 +28,7 @@ public class OrderProducts
     [Required]
 
     public string? ProductNumber { get; set; }
-    [Required]
+    
     public int? OrderId { get; set; }
     public Order? Order { get; set; }
 

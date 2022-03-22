@@ -1,4 +1,4 @@
-@model backend.Models.ProductColor
+@model backend.Models.ProductSize
 
 @{
     Layout = "_Layout";
@@ -14,20 +14,14 @@
 <body>
 
 <div>
-    <h4>ProductColor</h4>
+    <h4>ProductSize</h4>
     <hr />
     <dl class="row">
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Color)
+            @Html.DisplayNameFor(model => model.Size)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Color)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.ColorCode)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.ColorCode)
+            @Html.DisplayFor(model => model.Size)
         </dd>
     </dl>
 </div>

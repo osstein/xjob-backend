@@ -16,7 +16,12 @@ builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.Requ
     .AddEntityFrameworkStores<ApplicationDbContext>();
 builder.Services.AddControllersWithViews();
 builder.Services.AddDbContext<CatalogDBContext>(options => options.UseSqlite(builder.Configuration.GetConnectionString("CatalogString")));
-
+//added to prevent costumer api to loop inifinte
+builder.Services.AddMvc()
+                .AddJsonOptions(opt =>
+                 {
+                     opt.JsonSerializerOptions.ReferenceHandler = System.Text.Json.Serialization.ReferenceHandler.IgnoreCycles;
+                 });
 
 
 var app = builder.Build();

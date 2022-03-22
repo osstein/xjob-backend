@@ -64,20 +64,20 @@ namespace backend.Controllers
                 }
             }
             //Save instance of order
+            OrderPostRequest.Order.OrderNumber = DateTime.Now.ToString("yyyyMMddssfff");
             _context.Order.Add(OrderPostRequest.Order);
             await _context.SaveChangesAsync();
-
 
             // Behöver skriva produkter till tabell med Id för order 
             foreach (var item in OrderPostRequest.OrderProducts)
             {
+                item.OrderId = OrderPostRequest.Order.Id;;
                 _context.OrderProducts.Add(item);
                 await _context.SaveChangesAsync();
             }
 
             //Behöver hämta in moms från produkter och antal från order
-            var UpdateOrder = await _context.Order.FindAsync(OrderPostRequest.Order.OrderNumber);
-            var OrderObjects = from OrderProducts in _context.OrderProducts.Where(s => s.OrderId == UpdateOrder.Id) select OrderProducts;
+            
 
 
             //Behöver hämta pris från katalogen
@@ -86,7 +86,7 @@ namespace backend.Controllers
             //Uppdatera instans av order med nya priser hämtade från .NET
 
 
-            return OrderPostRequest;
+            return CreatedAtAction("GetOrder", new { id = OrderPostRequest.Order.Id }, _context.Order);
         }
 
         //Get calls

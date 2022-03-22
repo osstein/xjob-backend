@@ -143,11 +143,9 @@ namespace backend.Migrations
                         .HasColumnType("TEXT");
 
                     b.Property<string>("DiscountCode")
-                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.Property<decimal?>("DiscountTotal")
-                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.Property<string>("OrderNumber")
@@ -167,7 +165,9 @@ namespace backend.Migrations
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Status")
-                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<DateTime>("Timestamp")
                         .HasColumnType("TEXT");
 
                     b.Property<decimal?>("VatTotal")

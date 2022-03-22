@@ -28,9 +28,9 @@ public class Order
     public decimal? PriceTotal { get; set; }
     [Required]
     public decimal? VatTotal { get; set; }
-    [Required]
-    public decimal? DiscountTotal { get; set; }
-    [Required]
+    
+    public decimal? DiscountTotal { get; set; } = 0;
+    
     public string? DiscountCode { get; set; }
 
     [Required]
@@ -43,7 +43,7 @@ public class Order
 
     public DateTime Timestamp { get; set; } = DateTime.Now;
 
-    [Required]
-    public string? Status { get; set; }
+ 
+    public string? Status { get; set; } = "new";
     public List<OrderProducts>? OrderProducts { get; set; }
 }

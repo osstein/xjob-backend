@@ -71,12 +71,13 @@ namespace backend.Migrations
                     CustomerCity = table.Column<string>(type: "TEXT", nullable: false),
                     PriceTotal = table.Column<decimal>(type: "TEXT", nullable: false),
                     VatTotal = table.Column<decimal>(type: "TEXT", nullable: false),
-                    DiscountTotal = table.Column<decimal>(type: "TEXT", nullable: false),
-                    DiscountCode = table.Column<string>(type: "TEXT", nullable: false),
+                    DiscountTotal = table.Column<decimal>(type: "TEXT", nullable: true),
+                    DiscountCode = table.Column<string>(type: "TEXT", nullable: true),
                     OrderNumber = table.Column<string>(type: "TEXT", nullable: false),
                     ReceiptNumber = table.Column<string>(type: "TEXT", nullable: false),
                     PaymentMethod = table.Column<string>(type: "TEXT", nullable: false),
-                    Status = table.Column<string>(type: "TEXT", nullable: false)
+                    Timestamp = table.Column<DateTime>(type: "TEXT", nullable: false),
+                    Status = table.Column<string>(type: "TEXT", nullable: true)
                 },
                 constraints: table =>
                 {
