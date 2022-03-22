@@ -54,6 +54,9 @@ namespace backend.Controllers
             var discountData = from DiscountCodes in _context.DiscountCodes select DiscountCodes;
             decimal discountFactor = 0;
             decimal totalDiscountedFactor = 1;
+            decimal PriceTotal = 0;
+            decimal VatTotal = 0;
+            decimal DiscountTotal = 0;
             DateTime dateNow = DateTime.Now;
             foreach (var item in discountData)
             {
@@ -64,34 +67,39 @@ namespace backend.Controllers
                 }
             }
             //Save instance of order
-            OrderPostRequest.Order.OrderNumber = DateTime.Now.ToString("yyyyMMddssfff");
+            OrderPostRequest.Order.OrderNumber = "ON-" + DateTime.Now.ToString("yyyyMMddssfff");
+            OrderPostRequest.Order.ReceiptNumber = "RN-" + new Random().Next(11) + "-" + DateTime.Now.ToString("yyyyMMddssfff");
             _context.Order.Add(OrderPostRequest.Order);
             await _context.SaveChangesAsync();
 
             // Behöver skriva produkter till tabell med Id för order 
             foreach (var item in OrderPostRequest.OrderProducts)
             {
-                item.OrderId = OrderPostRequest.Order.Id;;
+                //Id för order som produkterna kopplas till
+                item.OrderId = OrderPostRequest.Order.Id;
+                //Behöver hämta in produkt till prissättning
+                var product = await _context.Product.FindAsync(item.ProductId);
+                // Lägg moms till moms total
+                VatTotal += (product.Vat / 100) * (product.Price * item.Amount);
+                //Behöver hämta pris från katalogen
+                item.Price = product.Price;
+                //Produkt nummer
+                item.ProductNumber = product.ProductNumber;
+                // Lägg Pris till pris total
+                PriceTotal += (product.Price * item.Amount);
                 _context.OrderProducts.Add(item);
                 await _context.SaveChangesAsync();
             }
-
-            //Behöver hämta in moms från produkter och antal från order
-            
-
-
-            //Behöver hämta pris från katalogen
-
-
-            //Uppdatera instans av order med nya priser hämtade från .NET
-
-
+            // Total rabatt
+            DiscountTotal = PriceTotal * discountFactor;
+            // Set price values
+            OrderPostRequest.Order.PriceTotal = PriceTotal;
+            OrderPostRequest.Order.VatTotal = VatTotal;
+            OrderPostRequest.Order.DiscountTotal = DiscountTotal;
+            _context.Order.Update(OrderPostRequest.Order);
+            await _context.SaveChangesAsync();
             return CreatedAtAction("GetOrder", new { id = OrderPostRequest.Order.Id }, _context.Order);
         }
-
-        //Get calls
-        //var context = from CustomerData in _context.CustomerData select CustomerData;
-        //var tastingsData = await _context.TastingData.FindAsync(customerData.TastingId);
 
 
         private bool OrderExists(int id)
@@ -100,33 +108,3 @@ namespace backend.Controllers
         }
     }
 }
-/* // PUT: api/APIProductType/5
-        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
-        [HttpPut("{id}")]
-        public async Task<IActionResult> PutProductType(int id, ProductType productType)
-        {
-            if (id != productType.Id)
-            {
-                return BadRequest();
-            }
-
-            _context.Entry(productType).State = EntityState.Modified;
-
-            try
-            {
-                await _context.SaveChangesAsync();
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                if (!ProductTypeExists(id))
-                {
-                    return NotFound();
-                }
-                else
-                {
-                    throw;
-                }
-            }
-
-            return NoContent();
-        }*/

@@ -17,7 +17,7 @@ public class OrderProducts
     public decimal? Price { get; set; }
     [Required]
 
-    public int? Amount { get; set; }
+    public int Amount { get; set; }
     [Required]
 
     public string? ProductSize { get; set; }

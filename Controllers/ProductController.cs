@@ -49,7 +49,23 @@ namespace backend.Controllers
         // GET: Product/Create
         public IActionResult Create()
         {
-            ViewData["CatalogSubCategoriesId"] = new SelectList(_context.CatalogSubCategories, "Id", "Category");
+
+            var sub = from CatalogSubCategories in _context.CatalogSubCategories select CatalogSubCategories;
+            var main = from CatalogCategories in _context.CatalogCategories select CatalogCategories; ;
+
+            foreach (var low in sub)
+            {
+                foreach (var top in main)
+                {
+                    if (top.Id == low.CatalogCategoriesId)
+                    {
+                        low.Category = low.Category + " (" + top.Category + ")";
+                    }
+                }
+            }
+
+            ViewData["CatalogSubCategoriesId"] = new SelectList(sub, "Id", "Category");
+
             return View();
         }
 
