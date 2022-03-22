@@ -51,6 +51,7 @@ namespace backend.Controllers
         {
 
             //Behöver hämta in discount från discount codes och kontrollera datum, tid och kod
+
             var discountData = from DiscountCodes in _context.DiscountCodes select DiscountCodes;
             decimal discountFactor = 0;
             decimal totalDiscountedFactor = 1;
@@ -82,11 +83,33 @@ namespace backend.Controllers
                 // Lägg moms till moms total
                 VatTotal += (product.Vat / 100) * (product.Price * item.Amount);
                 //Behöver hämta pris från katalogen
-                item.Price = product.Price;
+                item.Price = product.Price; if (product.Discount != 0)
+                {
+                    var ProductDiscountFactor = product.Discount / 100;
+                    if (ProductDiscountFactor > discountFactor)
+                    {
+                        discountFactor = ProductDiscountFactor;
+                    }
+                }
                 //Produkt nummer
                 item.ProductNumber = product.ProductNumber;
                 // Lägg Pris till pris total
                 PriceTotal += (product.Price * item.Amount);
+                //Uppdatera saldon i produkter
+                var type = await _context.ProductType.FindAsync(item.TypeId);
+                type.Amount -= item.Amount;
+                if (type.Amount <= 0)
+                {
+                    type.Amount = 0;
+                }
+                //Add color and size
+                var Color = await _context.ProductColor.FindAsync(type.ProductColorId);
+                var Size = await _context.ProductSize.FindAsync(type.ProductSizeId);
+                item.ProductColor = Color.Color;
+                item.ProductSize = Size.Size;
+                //Add ProductNumber from DB
+                var Product = await _context.Product.FindAsync(item.ProductId);
+                item.ProductNumber = Product.ProductNumber;
                 _context.OrderProducts.Add(item);
                 await _context.SaveChangesAsync();
             }
@@ -96,6 +119,8 @@ namespace backend.Controllers
             OrderPostRequest.Order.PriceTotal = PriceTotal;
             OrderPostRequest.Order.VatTotal = VatTotal;
             OrderPostRequest.Order.DiscountTotal = DiscountTotal;
+
+
             _context.Order.Update(OrderPostRequest.Order);
             await _context.SaveChangesAsync();
             return CreatedAtAction("GetOrder", new { id = OrderPostRequest.Order.Id }, _context.Order);

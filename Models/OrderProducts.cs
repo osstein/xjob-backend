@@ -1,4 +1,5 @@
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace backend.Models;
 
@@ -18,6 +19,10 @@ public class OrderProducts
     [Required]
 
     public int Amount { get; set; }
+
+    [NotMapped]
+    public int TypeId { get; set; }
+    
     [Required]
 
     public string? ProductSize { get; set; }
@@ -28,7 +33,7 @@ public class OrderProducts
     [Required]
 
     public string? ProductNumber { get; set; }
-    
+
     public int? OrderId { get; set; }
     public Order? Order { get; set; }
 

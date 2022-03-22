@@ -30,8 +30,9 @@
     <tbody>
 @foreach (var item in Model) {
         <tr>
-            <td>
+            <td><div style="background-color: @item.ColorCode; display:inline-block; height:15px; width:15px;"></div>
                 @Html.DisplayFor(modelItem => item.Color)
+                
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.ColorCode)
