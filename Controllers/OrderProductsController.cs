@@ -62,6 +62,7 @@ namespace backend.Controllers
         {
             if (ModelState.IsValid)
             {
+                // Behöver uppdatera VAT och Discount i order
                 _context.Add(orderProducts);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));

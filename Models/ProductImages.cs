@@ -8,7 +8,7 @@ namespace backend.Models;
 public class ProductImages
 {
     public int Id { get; set; }
-    [Required]
+    
     public string? ImagePath { get; set; }
 
     [NotMapped]

@@ -68,7 +68,7 @@ namespace backend.Controllers
                 }
             }
             //Save instance of order
-            OrderPostRequest.Order.OrderNumber = "ON-" + DateTime.Now.ToString("yyyyMMddssfff");
+            OrderPostRequest.Order.OrderNumber = "OW-" + DateTime.Now.ToString("yyyyMMddssfff");
             OrderPostRequest.Order.ReceiptNumber = "RN-" + new Random().Next(11) + "-" + DateTime.Now.ToString("yyyyMMddssfff");
             _context.Order.Add(OrderPostRequest.Order);
             await _context.SaveChangesAsync();
@@ -119,6 +119,7 @@ namespace backend.Controllers
             OrderPostRequest.Order.PriceTotal = PriceTotal;
             OrderPostRequest.Order.VatTotal = VatTotal;
             OrderPostRequest.Order.DiscountTotal = DiscountTotal;
+            OrderPostRequest.Order.Status = "New";
 
 
             _context.Order.Update(OrderPostRequest.Order);

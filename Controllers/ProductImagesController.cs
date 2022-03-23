@@ -14,10 +14,12 @@ namespace backend.Controllers
     public class ProductImagesController : Controller
     {
         private readonly CatalogDBContext _context;
+        private readonly IWebHostEnvironment _hostEnvironment;
 
-        public ProductImagesController(CatalogDBContext context)
+        public ProductImagesController(CatalogDBContext context, IWebHostEnvironment hostEnvironment)
         {
             _context = context;
+            _hostEnvironment = hostEnvironment;
         }
 
         // GET: ProductImages
@@ -58,10 +60,26 @@ namespace backend.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,ImagePath,ImageAlt,ProductId")] ProductImages productImages)
+        public async Task<IActionResult> Create([Bind("Id,ImagePath,ImageFile,ImageAlt,ProductId")] ProductImages productImages)
         {
             if (ModelState.IsValid)
             {
+                string wwwRoot = _hostEnvironment.WebRootPath; // wwwroot path
+                if (productImages.ImageFile != null)
+                {
+                    // Adjust image filename
+                    string filename = Path.GetFileNameWithoutExtension(productImages.ImageFile.FileName); // Filename
+                    string extention = Path.GetExtension(productImages.ImageFile.FileName); // extention
+                    string name = filename + DateTime.Now.ToString("yyyyMMddssfff") + extention;
+                    string url = Path.Combine("/images/" + name);
+                    productImages.ImagePath = url;
+                    //Store file
+                    using (var FileStream = new FileStream(wwwRoot + "/images/" + name, FileMode.Create))
+                    {
+                        await productImages.ImageFile.CopyToAsync(FileStream);
+                    }
+                    //editImages(name);
+                }
                 _context.Add(productImages);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
@@ -92,7 +110,7 @@ namespace backend.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,ImagePath,ImageAlt,ProductId")] ProductImages productImages)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,ImagePath,ImageFile,ImageAlt,ProductId")] ProductImages productImages)
         {
             if (id != productImages.Id)
             {
@@ -101,6 +119,23 @@ namespace backend.Controllers
 
             if (ModelState.IsValid)
             {
+                string wwwRoot = _hostEnvironment.WebRootPath; // wwwroot path
+                if (productImages.ImageFile != null)
+                {
+                    // Adjust image filename
+                    string filename = Path.GetFileNameWithoutExtension(productImages.ImageFile.FileName); // Filename
+                    string extention = Path.GetExtension(productImages.ImageFile.FileName); // extention
+                    string name = filename + DateTime.Now.ToString("yyyyMMddssfff") + extention;
+                    string url = Path.Combine("/images/" + name);
+                    productImages.ImagePath = url;
+                    //Store file
+                    using (var FileStream = new FileStream(wwwRoot + "/images/" + name, FileMode.Create))
+                    {
+                        await productImages.ImageFile.CopyToAsync(FileStream);
+                    }
+                    //editImages(name);
+                }
+
                 try
                 {
                     _context.Update(productImages);

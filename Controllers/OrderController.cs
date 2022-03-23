@@ -59,7 +59,12 @@ namespace backend.Controllers
         {
             if (ModelState.IsValid)
             {
-                _context.Add(order);
+                _context.Order.Add(order);
+                await _context.SaveChangesAsync();
+                //Save instance of order
+                order.OrderNumber = "OL-" + DateTime.Now.ToString("yyyyMMddssfff");
+                order.ReceiptNumber = "RN-" + new Random().Next(11) + "-" + DateTime.Now.ToString("yyyyMMddssfff");
+                _context.Order.Update(order);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }

@@ -24,26 +24,26 @@ public class Order
     [Required]
     public string? CustomerCity { get; set; }
 
-    [Required]
-    public decimal? PriceTotal { get; set; }
-    [Required]
-    public decimal? VatTotal { get; set; }
-    
-    public decimal? DiscountTotal { get; set; } = 0;
-    
-    public string? DiscountCode { get; set; }
 
-    [Required]
-    public string? OrderNumber { get; set; }
-    [Required]
-    public string? ReceiptNumber { get; set; }
+    public decimal? PriceTotal { get; set; } = 0;
+
+    public decimal? VatTotal { get; set; } = 0;
+
+    public decimal? DiscountTotal { get; set; } = 0;
+
+    public string? DiscountCode { get; set; } = "";
+
+
+    public string? OrderNumber { get; set; } = "";
+
+    public string? ReceiptNumber { get; set; } = "";
 
     [Required]
     public string? PaymentMethod { get; set; }
 
     public DateTime Timestamp { get; set; } = DateTime.Now;
 
- 
-    public string? Status { get; set; } = "new";
+
+    public string? Status { get; set; } = "New";
     public List<OrderProducts>? OrderProducts { get; set; }
 }

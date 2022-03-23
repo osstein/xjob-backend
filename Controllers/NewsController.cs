@@ -14,10 +14,12 @@ namespace backend.Controllers
     public class NewsController : Controller
     {
         private readonly CatalogDBContext _context;
+        private readonly IWebHostEnvironment _hostEnvironment;
 
-        public NewsController(CatalogDBContext context)
+        public NewsController(CatalogDBContext context, IWebHostEnvironment hostEnvironment)
         {
             _context = context;
+            _hostEnvironment = hostEnvironment;
         }
 
         // GET: News
@@ -55,10 +57,27 @@ namespace backend.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Title,Content,ImagePath,ImageAlt,Timestamp")] News news)
+        public async Task<IActionResult> Create([Bind("Id,Title,Content,ImagePath,ImageFile,ImageAlt,Timestamp")] News news)
         {
             if (ModelState.IsValid)
             {
+                string wwwRoot = _hostEnvironment.WebRootPath; // wwwroot path
+                if (news.ImageFile != null)
+                {
+                    // Adjust image filename
+                    string filename = Path.GetFileNameWithoutExtension(news.ImageFile.FileName); // Filename
+                    string extention = Path.GetExtension(news.ImageFile.FileName); // extention
+                    string name = filename + DateTime.Now.ToString("yyyyMMddssfff") + extention;
+                    string url = Path.Combine("/images/" + name);
+                    news.ImagePath = url;
+                    //Store file
+                    using (var FileStream = new FileStream(wwwRoot + "/images/" + name, FileMode.Create))
+                    {
+                        await news.ImageFile.CopyToAsync(FileStream);
+                    }
+                    //editImages(name);
+                }
+
                 _context.Add(news);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
@@ -87,7 +106,7 @@ namespace backend.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Title,Content,ImagePath,ImageAlt,Timestamp")] News news)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Title,Content,ImagePath,ImageFile,ImageAlt,Timestamp")] News news)
         {
             if (id != news.Id)
             {
@@ -96,6 +115,22 @@ namespace backend.Controllers
 
             if (ModelState.IsValid)
             {
+                string wwwRoot = _hostEnvironment.WebRootPath; // wwwroot path
+                if (news.ImageFile != null)
+                {
+                    // Adjust image filename
+                    string filename = Path.GetFileNameWithoutExtension(news.ImageFile.FileName); // Filename
+                    string extention = Path.GetExtension(news.ImageFile.FileName); // extention
+                    string name = filename + DateTime.Now.ToString("yyyyMMddssfff") + extention;
+                    string url = Path.Combine("/images/" + name);
+                    news.ImagePath = url;
+                    //Store file
+                    using (var FileStream = new FileStream(wwwRoot + "/images/" + name, FileMode.Create))
+                    {
+                        await news.ImageFile.CopyToAsync(FileStream);
+                    }
+                    //editImages(name);
+                }
                 try
                 {
                     _context.Update(news);
