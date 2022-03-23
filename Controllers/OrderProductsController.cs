@@ -49,7 +49,7 @@ namespace backend.Controllers
         // GET: OrderProducts/Create
         public IActionResult Create()
         {
-            ViewData["OrderId"] = new SelectList(_context.Order, "Id", "CustomerAdress");
+            ViewData["OrderId"] = new SelectList(_context.Order, "Id", "OrderNumber");
             return View();
         }
 
@@ -67,7 +67,7 @@ namespace backend.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["OrderId"] = new SelectList(_context.Order, "Id", "CustomerAdress", orderProducts.OrderId);
+            ViewData["OrderId"] = new SelectList(_context.Order, "Id", "OrderNumber", orderProducts.OrderId);
             return View(orderProducts);
         }
 
@@ -84,7 +84,7 @@ namespace backend.Controllers
             {
                 return NotFound();
             }
-            ViewData["OrderId"] = new SelectList(_context.Order, "Id", "CustomerAdress", orderProducts.OrderId);
+            ViewData["OrderId"] = new SelectList(_context.Order, "Id", "OrderNumber", orderProducts.OrderId);
             return View(orderProducts);
         }
 
@@ -120,7 +120,7 @@ namespace backend.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["OrderId"] = new SelectList(_context.Order, "Id", "CustomerAdress", orderProducts.OrderId);
+            ViewData["OrderId"] = new SelectList(_context.Order, "Id", "OrderNumber", orderProducts.OrderId);
             return View(orderProducts);
         }
 

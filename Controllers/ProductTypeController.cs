@@ -21,10 +21,18 @@ namespace backend.Controllers
         }
 
         // GET: ProductType
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string Id)
         {
-            var catalogDBContext = _context.ProductType.Include(p => p.Product).Include(p => p.ProductColor).Include(p => p.ProductSize);
-            return View(await catalogDBContext.ToListAsync());
+            if (Id != null)
+            {
+                var catalogDBContext = _context.ProductType.Include(p => p.Product).Where(s => s.ProductId == Convert.ToInt32(Id));
+                return View(await catalogDBContext.ToListAsync());
+            }
+            else
+            {
+                var catalogDBContext = _context.ProductType.Include(p => p.Product);
+                return View(await catalogDBContext.ToListAsync());
+            }
         }
 
         // GET: ProductType/Details/5
@@ -51,7 +59,7 @@ namespace backend.Controllers
         // GET: ProductType/Create
         public IActionResult Create()
         {
-            ViewData["ProductId"] = new SelectList(_context.Product, "Id", "Description");
+            ViewData["ProductId"] = new SelectList(_context.Product, "Id", "Name");
             ViewData["ProductColorId"] = new SelectList(_context.ProductColor, "Id", "Color");
             ViewData["ProductSizeId"] = new SelectList(_context.ProductSize, "Id", "Size");
             return View();
@@ -70,7 +78,7 @@ namespace backend.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["ProductId"] = new SelectList(_context.Product, "Id", "Description", productType.ProductId);
+            ViewData["ProductId"] = new SelectList(_context.Product, "Id", "Name", productType.ProductId);
             ViewData["ProductColorId"] = new SelectList(_context.ProductColor, "Id", "Color", productType.ProductColorId);
             ViewData["ProductSizeId"] = new SelectList(_context.ProductSize, "Id", "Size", productType.ProductSizeId);
             return View(productType);
@@ -89,7 +97,7 @@ namespace backend.Controllers
             {
                 return NotFound();
             }
-            ViewData["ProductId"] = new SelectList(_context.Product, "Id", "Description", productType.ProductId);
+            ViewData["ProductId"] = new SelectList(_context.Product, "Id", "Name", productType.ProductId);
             ViewData["ProductColorId"] = new SelectList(_context.ProductColor, "Id", "Color", productType.ProductColorId);
             ViewData["ProductSizeId"] = new SelectList(_context.ProductSize, "Id", "Size", productType.ProductSizeId);
             return View(productType);
@@ -127,7 +135,7 @@ namespace backend.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["ProductId"] = new SelectList(_context.Product, "Id", "Description", productType.ProductId);
+            ViewData["ProductId"] = new SelectList(_context.Product, "Id", "Name", productType.ProductId);
             ViewData["ProductColorId"] = new SelectList(_context.ProductColor, "Id", "Color", productType.ProductColorId);
             ViewData["ProductSizeId"] = new SelectList(_context.ProductSize, "Id", "Size", productType.ProductSizeId);
             return View(productType);

@@ -54,10 +54,17 @@
             @Html.DisplayFor(model => model.ProductNumber)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.CatalogSubCategories)
+            Category
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.CatalogSubCategories.Category)
+
+             @foreach (var cat in ViewBag.Categories)
+                        {
+                            @if (this.Model?.CatalogSubCategoriesId == cat.Id)
+                            {
+                                @cat.Category
+                            }
+                        }
         </dd>
         <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.Timestamp)

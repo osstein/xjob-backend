@@ -23,10 +23,18 @@ namespace backend.Controllers
         }
 
         // GET: ProductImages
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string Id)
         {
-            var catalogDBContext = _context.ProductImages.Include(p => p.Product);
-            return View(await catalogDBContext.ToListAsync());
+            if (Id != null)
+            {
+                var catalogDBContext = _context.ProductImages.Include(p => p.Product).Where(s => s.ProductId == Convert.ToInt32(Id));
+                return View(await catalogDBContext.ToListAsync());
+            }
+            else
+            {
+                var catalogDBContext = _context.ProductImages.Include(p => p.Product);
+                return View(await catalogDBContext.ToListAsync());
+            }
         }
 
         // GET: ProductImages/Details/5
@@ -51,7 +59,7 @@ namespace backend.Controllers
         // GET: ProductImages/Create
         public IActionResult Create()
         {
-            ViewData["ProductId"] = new SelectList(_context.Product, "Id", "Description");
+            ViewData["ProductId"] = new SelectList(_context.Product, "Id", "Name");
             return View();
         }
 
@@ -84,7 +92,7 @@ namespace backend.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["ProductId"] = new SelectList(_context.Product, "Id", "Description", productImages.ProductId);
+            ViewData["ProductId"] = new SelectList(_context.Product, "Id", "Name", productImages.ProductId);
             return View(productImages);
         }
 
@@ -101,7 +109,7 @@ namespace backend.Controllers
             {
                 return NotFound();
             }
-            ViewData["ProductId"] = new SelectList(_context.Product, "Id", "Description", productImages.ProductId);
+            ViewData["ProductId"] = new SelectList(_context.Product, "Id", "Name", productImages.ProductId);
             return View(productImages);
         }
 
@@ -119,25 +127,9 @@ namespace backend.Controllers
 
             if (ModelState.IsValid)
             {
-                string wwwRoot = _hostEnvironment.WebRootPath; // wwwroot path
-                if (productImages.ImageFile != null)
-                {
-                    // Adjust image filename
-                    string filename = Path.GetFileNameWithoutExtension(productImages.ImageFile.FileName); // Filename
-                    string extention = Path.GetExtension(productImages.ImageFile.FileName); // extention
-                    string name = filename + DateTime.Now.ToString("yyyyMMddssfff") + extention;
-                    string url = Path.Combine("/images/" + name);
-                    productImages.ImagePath = url;
-                    //Store file
-                    using (var FileStream = new FileStream(wwwRoot + "/images/" + name, FileMode.Create))
-                    {
-                        await productImages.ImageFile.CopyToAsync(FileStream);
-                    }
-                    //editImages(name);
-                }
-
                 try
                 {
+                    productImages.ImagePath = productImages.ImagePath;
                     _context.Update(productImages);
                     await _context.SaveChangesAsync();
                 }
@@ -154,7 +146,7 @@ namespace backend.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["ProductId"] = new SelectList(_context.Product, "Id", "Description", productImages.ProductId);
+            ViewData["ProductId"] = new SelectList(_context.Product, "Id", "Name", productImages.ProductId);
             return View(productImages);
         }
 

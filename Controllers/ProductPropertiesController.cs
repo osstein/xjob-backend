@@ -21,10 +21,18 @@ namespace backend.Controllers
         }
 
         // GET: ProductProperties
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string Id)
         {
-            var catalogDBContext = _context.ProductProperties.Include(p => p.Product);
-            return View(await catalogDBContext.ToListAsync());
+           if (Id != null)
+            {
+                var catalogDBContext = _context.ProductProperties.Include(p => p.Product).Where(s => s.ProductId == Convert.ToInt32(Id));
+                return View(await catalogDBContext.ToListAsync());
+            }
+            else
+            {
+                var catalogDBContext = _context.ProductProperties.Include(p => p.Product);
+                return View(await catalogDBContext.ToListAsync());
+            }
         }
 
         // GET: ProductProperties/Details/5
@@ -49,7 +57,7 @@ namespace backend.Controllers
         // GET: ProductProperties/Create
         public IActionResult Create()
         {
-            ViewData["ProductId"] = new SelectList(_context.Product, "Id", "Description");
+            ViewData["ProductId"] = new SelectList(_context.Product, "Id", "Name");
             return View();
         }
 
@@ -66,7 +74,7 @@ namespace backend.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["ProductId"] = new SelectList(_context.Product, "Id", "Description", productProperties.ProductId);
+            ViewData["ProductId"] = new SelectList(_context.Product, "Id", "Name", productProperties.ProductId);
             return View(productProperties);
         }
 

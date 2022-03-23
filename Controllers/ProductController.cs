@@ -23,6 +23,25 @@ namespace backend.Controllers
         // GET: Product
         public async Task<IActionResult> Index()
         {
+            var sub = from CatalogSubCategories in _context.CatalogSubCategories select CatalogSubCategories;
+            var main = from CatalogCategories in _context.CatalogCategories select CatalogCategories;
+
+            foreach (var low in sub)
+            {
+                foreach (var top in main)
+                {
+                    if (top.Id == low.CatalogCategoriesId)
+                    {
+                        low.Category = low.Category + " (" + top.Category + ")";
+                    }
+                }
+            }
+            ViewData["Categories"] = await sub.ToListAsync();
+
+            var Images = from ProductImages in _context.ProductImages select ProductImages;
+            ViewData["Images"] = await Images.ToListAsync();
+
+
             var catalogDBContext = _context.Product.Include(p => p.CatalogSubCategories);
             return View(await catalogDBContext.ToListAsync());
         }
@@ -42,6 +61,20 @@ namespace backend.Controllers
             {
                 return NotFound();
             }
+            var sub = from CatalogSubCategories in _context.CatalogSubCategories select CatalogSubCategories;
+            var main = from CatalogCategories in _context.CatalogCategories select CatalogCategories; ;
+
+            foreach (var low in sub)
+            {
+                foreach (var top in main)
+                {
+                    if (top.Id == low.CatalogCategoriesId)
+                    {
+                        low.Category = low.Category + " (" + top.Category + ")";
+                    }
+                }
+            }
+            ViewData["Categories"] = await sub.ToListAsync();
 
             return View(product);
         }
@@ -78,6 +111,14 @@ namespace backend.Controllers
         {
             if (ModelState.IsValid)
             {
+                if (product.Vat > 25)
+                {
+                    product.Vat = 25;
+                }
+                if (product.Discount > 100)
+                {
+                    product.Discount = 100;
+                }
                 _context.Add(product);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
@@ -99,7 +140,21 @@ namespace backend.Controllers
             {
                 return NotFound();
             }
-            ViewData["CatalogSubCategoriesId"] = new SelectList(_context.CatalogSubCategories, "Id", "Category", product.CatalogSubCategoriesId);
+            var sub = from CatalogSubCategories in _context.CatalogSubCategories select CatalogSubCategories;
+            var main = from CatalogCategories in _context.CatalogCategories select CatalogCategories; ;
+
+            foreach (var low in sub)
+            {
+                foreach (var top in main)
+                {
+                    if (top.Id == low.CatalogCategoriesId)
+                    {
+                        low.Category = low.Category + " (" + top.Category + ")";
+                    }
+                }
+            }
+
+            ViewData["CatalogSubCategoriesId"] = new SelectList(sub, "Id", "Category");
             return View(product);
         }
 
@@ -119,6 +174,14 @@ namespace backend.Controllers
             {
                 try
                 {
+                    if (product.Vat > 25)
+                    {
+                        product.Vat = 25;
+                    }
+                    if (product.Discount > 100)
+                    {
+                        product.Discount = 100;
+                    }
                     _context.Update(product);
                     await _context.SaveChangesAsync();
                 }
@@ -154,6 +217,20 @@ namespace backend.Controllers
             {
                 return NotFound();
             }
+            var sub = from CatalogSubCategories in _context.CatalogSubCategories select CatalogSubCategories;
+            var main = from CatalogCategories in _context.CatalogCategories select CatalogCategories; ;
+
+            foreach (var low in sub)
+            {
+                foreach (var top in main)
+                {
+                    if (top.Id == low.CatalogCategoriesId)
+                    {
+                        low.Category = low.Category + " (" + top.Category + ")";
+                    }
+                }
+            }
+            ViewData["Categories"] = await sub.ToListAsync();
 
             return View(product);
         }

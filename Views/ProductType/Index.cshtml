@@ -43,7 +43,8 @@
                         @Html.DisplayFor(modelItem => item.Amount)
                     </td>
                     <td>
-                        @Html.DisplayFor(modelItem => item.Product.Description)
+                        <b>@Html.DisplayFor(modelItem => item.Product.ProductNumber)</b> - 
+                        @Html.DisplayFor(modelItem => item.Product.Name)
                     </td>
                     <td>
                         <div
