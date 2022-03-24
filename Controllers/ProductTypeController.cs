@@ -30,6 +30,9 @@ namespace backend.Controllers
             }
             else
             {
+                
+                ViewData["Sizes"] = await _context.ProductSize.ToListAsync();
+                ViewData["Colors"] = await _context.ProductColor.ToListAsync();
                 var catalogDBContext = _context.ProductType.Include(p => p.Product);
                 return View(await catalogDBContext.ToListAsync());
             }

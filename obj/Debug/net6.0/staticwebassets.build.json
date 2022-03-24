@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "2G72ciGHQDqvFCPGWzCwLhriYfNVwt1wX79ZI2e7ad0=",
+  "Hash": "7/VHYRXp/Dqs9CT6pff2r9+bd6FYbTaiDHY3sZWftXk=",
   "Source": "backend",
   "BasePath": "_content/backend",
   "Mode": "Default",
@@ -1256,6 +1256,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\images\\P10101862022032353095.jpg"
+    },
+    {
+      "Identity": "C:\\xampp\\htdocs\\xjobb\\backend\\wwwroot\\images\\P10101862022032421099.jpg",
+      "SourceId": "backend",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\xampp\\htdocs\\xjobb\\backend\\wwwroot\\",
+      "BasePath": "_content/backend",
+      "RelativePath": "images/P10101862022032421099.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\P10101862022032421099.jpg"
     },
     {
       "Identity": "C:\\xampp\\htdocs\\xjobb\\backend\\wwwroot\\images\\profil2022032310567.jpg",

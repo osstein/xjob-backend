@@ -43,18 +43,34 @@
                         @Html.DisplayFor(modelItem => item.Amount)
                     </td>
                     <td>
-                        <b>@Html.DisplayFor(modelItem => item.Product.ProductNumber)</b> - 
+                        <b>@Html.DisplayFor(modelItem => item.Product.ProductNumber)</b> -
                         @Html.DisplayFor(modelItem => item.Product.Name)
                     </td>
                     <td>
-                        <div
-                        style="background-color: @item.ProductColor.ColorCode; display:inline-block; height:15px; width:15px;">
-                        </div>
-                        @Html.DisplayFor(modelItem => item.ProductColor.Color)
 
+                        @foreach (var Color in ViewBag.Colors)
+                        {
+
+                            @if (item.ProductColorId == Color.Id)
+                            {
+                                <div style="background-color: @Color.ColorCode; display:inline-block; height:15px; width:15px;">
+                                </div>
+                                @Color.Color
+
+                            }
+                        }
                     </td>
                     <td>
-                        @Html.DisplayFor(modelItem => item.ProductSize.Size)
+                        @foreach (var Size in ViewBag.Sizes)
+                        {
+
+                            @if (item.ProductSizeId == Size.Id)
+                            {
+                                
+                                @Size.Size
+
+                            }
+                        }
                     </td>
                     <td>
                         <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
