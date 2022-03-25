@@ -83,7 +83,8 @@ namespace backend.Controllers
                 // Lägg moms till moms total
                 VatTotal += (product.Vat / 100) * (product.Price * item.Amount);
                 //Behöver hämta pris från katalogen
-                item.Price = product.Price; if (product.Discount != 0)
+                item.Price = product.Price; 
+                if (product.Discount != 0)
                 {
                     var ProductDiscountFactor = product.Discount / 100;
                     if (ProductDiscountFactor > discountFactor)
