@@ -40,6 +40,24 @@ namespace backend.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "Episode",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "INTEGER", nullable: false)
+                        .Annotation("Sqlite:Autoincrement", true),
+                    Title = table.Column<string>(type: "TEXT", nullable: false),
+                    Description = table.Column<string>(type: "TEXT", nullable: false),
+                    S = table.Column<string>(type: "TEXT", nullable: false),
+                    E = table.Column<string>(type: "TEXT", nullable: false),
+                    FilePath = table.Column<string>(type: "TEXT", nullable: true),
+                    Timestamp = table.Column<DateTime>(type: "TEXT", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Episode", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "News",
                 columns: table => new
                 {
@@ -69,12 +87,12 @@ namespace backend.Migrations
                     CustomerAdress = table.Column<string>(type: "TEXT", nullable: false),
                     CustomerZip = table.Column<string>(type: "TEXT", nullable: false),
                     CustomerCity = table.Column<string>(type: "TEXT", nullable: false),
-                    PriceTotal = table.Column<decimal>(type: "TEXT", nullable: false),
-                    VatTotal = table.Column<decimal>(type: "TEXT", nullable: false),
+                    PriceTotal = table.Column<decimal>(type: "TEXT", nullable: true),
+                    VatTotal = table.Column<decimal>(type: "TEXT", nullable: true),
                     DiscountTotal = table.Column<decimal>(type: "TEXT", nullable: true),
                     DiscountCode = table.Column<string>(type: "TEXT", nullable: true),
-                    OrderNumber = table.Column<string>(type: "TEXT", nullable: false),
-                    ReceiptNumber = table.Column<string>(type: "TEXT", nullable: false),
+                    OrderNumber = table.Column<string>(type: "TEXT", nullable: true),
+                    ReceiptNumber = table.Column<string>(type: "TEXT", nullable: true),
                     PaymentMethod = table.Column<string>(type: "TEXT", nullable: false),
                     Timestamp = table.Column<DateTime>(type: "TEXT", nullable: false),
                     Status = table.Column<string>(type: "TEXT", nullable: true)
@@ -143,7 +161,7 @@ namespace backend.Migrations
                     ProductSize = table.Column<string>(type: "TEXT", nullable: false),
                     ProductColor = table.Column<string>(type: "TEXT", nullable: false),
                     ProductNumber = table.Column<string>(type: "TEXT", nullable: false),
-                    OrderId = table.Column<int>(type: "INTEGER", nullable: false)
+                    OrderId = table.Column<int>(type: "INTEGER", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -152,8 +170,7 @@ namespace backend.Migrations
                         name: "FK_OrderProducts_Order_OrderId",
                         column: x => x.OrderId,
                         principalTable: "Order",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "Id");
                 });
 
             migrationBuilder.CreateTable(
@@ -188,7 +205,7 @@ namespace backend.Migrations
                 {
                     Id = table.Column<int>(type: "INTEGER", nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
-                    ImagePath = table.Column<string>(type: "TEXT", nullable: false),
+                    ImagePath = table.Column<string>(type: "TEXT", nullable: true),
                     ImageAlt = table.Column<string>(type: "TEXT", nullable: false),
                     ProductId = table.Column<int>(type: "INTEGER", nullable: false)
                 },
@@ -303,6 +320,9 @@ namespace backend.Migrations
         {
             migrationBuilder.DropTable(
                 name: "DiscountCodes");
+
+            migrationBuilder.DropTable(
+                name: "Episode");
 
             migrationBuilder.DropTable(
                 name: "News");

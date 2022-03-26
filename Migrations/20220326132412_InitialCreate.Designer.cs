@@ -11,7 +11,7 @@ using backend.Data;
 namespace backend.Migrations
 {
     [DbContext(typeof(CatalogDBContext))]
-    [Migration("20220322072131_InitialCreate")]
+    [Migration("20220326132412_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -80,6 +80,39 @@ namespace backend.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("DiscountCodes");
+                });
+
+            modelBuilder.Entity("backend.Models.Episode", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("Description")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("E")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("FilePath")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("S")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<DateTime>("Timestamp")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Title")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Episode");
                 });
 
             modelBuilder.Entity("backend.Models.News", b =>
@@ -151,7 +184,6 @@ namespace backend.Migrations
                         .HasColumnType("TEXT");
 
                     b.Property<string>("OrderNumber")
-                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.Property<string>("PaymentMethod")
@@ -159,11 +191,9 @@ namespace backend.Migrations
                         .HasColumnType("TEXT");
 
                     b.Property<decimal?>("PriceTotal")
-                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.Property<string>("ReceiptNumber")
-                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Status")
@@ -173,7 +203,6 @@ namespace backend.Migrations
                         .HasColumnType("TEXT");
 
                     b.Property<decimal?>("VatTotal")
-                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.HasKey("Id");
@@ -187,16 +216,13 @@ namespace backend.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
-                    b.Property<int?>("Amount")
-                        .IsRequired()
+                    b.Property<int>("Amount")
                         .HasColumnType("INTEGER");
 
                     b.Property<int?>("OrderId")
-                        .IsRequired()
                         .HasColumnType("INTEGER");
 
-                    b.Property<decimal?>("Price")
-                        .IsRequired()
+                    b.Property<decimal>("Price")
                         .HasColumnType("TEXT");
 
                     b.Property<string>("ProductColor")
@@ -243,8 +269,7 @@ namespace backend.Migrations
                         .IsRequired()
                         .HasColumnType("TEXT");
 
-                    b.Property<decimal?>("Price")
-                        .IsRequired()
+                    b.Property<decimal>("Price")
                         .HasColumnType("TEXT");
 
                     b.Property<string>("ProductNumber")
@@ -294,7 +319,6 @@ namespace backend.Migrations
                         .HasColumnType("TEXT");
 
                     b.Property<string>("ImagePath")
-                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.Property<int?>("ProductId")
@@ -396,9 +420,7 @@ namespace backend.Migrations
                 {
                     b.HasOne("backend.Models.Order", "Order")
                         .WithMany("OrderProducts")
-                        .HasForeignKey("OrderId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("OrderId");
 
                     b.Navigation("Order");
                 });
