@@ -66,7 +66,7 @@
 
                             @if (item.ProductSizeId == Size.Id)
                             {
-                                
+
                                 @Size.Size
 
                             }
@@ -75,7 +75,29 @@
                     <td>
                         <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
                         <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                        <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                        <a asp-action="Delete" asp-route-id="@item.Id">Delete</a> |
+
+                        @foreach (var Size in ViewBag.Sizes)
+                        {
+                            @foreach (var Color in ViewBag.Colors)
+                            {
+                                @if (item.ProductSizeId == Size.Id)
+                                {
+                                    @if (item.ProductColorId == Color.Id)
+                                    {
+
+                                        <a asp-controller="OrderProducts" asp-route-id="@item.Id" asp-route-color="@Color.Color"
+                                            asp-route-size="@Size.Size" asp-route-productId="@item.Product.Id"
+                                        asp-route-productName="@item.Product.Name" asp-route-productNumber="@item.Product.ProductNumber"
+                                        asp-action="Create">Add to order</a>
+                                    }
+                                }
+                            }
+
+
+
+                        }
+
                     </td>
                 </tr>
             }

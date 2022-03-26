@@ -16328,6 +16328,11 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "c:\\xampp\\htdocs\\xjobb\\backend\\Views\\Episode\\Details.cshtml",
+      "TargetPath": "Views\\Episode\\Details.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "c:\\xampp\\htdocs\\xjobb\\backend\\Views\\CatalogCategories\\Details.cshtml",
       "TargetPath": "Views\\CatalogCategories\\Details.cshtml",
       "FileKind": "mvc"
@@ -16335,6 +16340,11 @@
     {
       "FilePath": "c:\\xampp\\htdocs\\xjobb\\backend\\Views\\_ViewStart.cshtml",
       "TargetPath": "Views\\_ViewStart.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\xampp\\htdocs\\xjobb\\backend\\Views\\Episode\\Edit.cshtml",
+      "TargetPath": "Views\\Episode\\Edit.cshtml",
       "FileKind": "mvc"
     },
     {
@@ -16378,6 +16388,11 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "c:\\xampp\\htdocs\\xjobb\\backend\\Views\\Episode\\Create.cshtml",
+      "TargetPath": "Views\\Episode\\Create.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "c:\\xampp\\htdocs\\xjobb\\backend\\Areas\\Identity\\Pages\\Account\\_ViewImports.cshtml",
       "TargetPath": "Areas\\Identity\\Pages\\Account\\_ViewImports.cshtml",
       "FileKind": "mvc"
@@ -16385,6 +16400,11 @@
     {
       "FilePath": "c:\\xampp\\htdocs\\xjobb\\backend\\Views\\DiscountCodes\\Delete.cshtml",
       "TargetPath": "Views\\DiscountCodes\\Delete.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\xampp\\htdocs\\xjobb\\backend\\Views\\Episode\\Index.cshtml",
+      "TargetPath": "Views\\Episode\\Index.cshtml",
       "FileKind": "mvc"
     },
     {
@@ -16550,6 +16570,11 @@
     {
       "FilePath": "c:\\xampp\\htdocs\\xjobb\\backend\\Views\\ProductImages\\Create.cshtml",
       "TargetPath": "Views\\ProductImages\\Create.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\xampp\\htdocs\\xjobb\\backend\\Views\\Episode\\Delete.cshtml",
+      "TargetPath": "Views\\Episode\\Delete.cshtml",
       "FileKind": "mvc"
     },
     {

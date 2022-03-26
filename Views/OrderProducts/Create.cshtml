@@ -22,13 +22,8 @@
             <form asp-action="Create">
                 <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                 <div class="form-group">
-                    <label asp-for="ProductId" class="control-label"></label>
-                    <select asp-for="ProductId" class="form-control" asp-items="ViewBag.Products"></select>
-                    <span asp-validation-for="ProductId" class="text-danger"></span>
-                </div>
-                <div class="form-group">
-                    <input type="hidden" value="0" asp-for="Price" class="form-control" />
-                    <span asp-validation-for="Price" class="text-danger"></span>
+                    <label asp-for="OrderId" class="control-label"></label>
+                    <select asp-for="OrderId" class="form-control" asp-items="ViewBag.OrderId"></select>
                 </div>
                 <div class="form-group">
                     <label asp-for="Amount" class="control-label"></label>
@@ -36,23 +31,46 @@
                     <span asp-validation-for="Amount" class="text-danger"></span>
                 </div>
                 <div class="form-group">
+                    <label asp-for="ProductId" class="control-label"></label>
+                    <p>@ViewBag.ProductId</p>
+                    <span asp-validation-for="ProductId" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="ProductNumber" class="control-label"></label>
+                    <p>@ViewBag.ProductNumber - @ViewBag.ProductName</p>
+
+                    <span asp-validation-for="ProductNumber" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <input type="hidden" value="0" asp-for="Price" class="form-control" />
+                    <input type="hidden" value="@ViewBag.TypeId" asp-for="TypeId" class="form-control" />
+                    <input type="hidden" value="@ViewBag.Size" asp-for="ProductSize" class="form-control" />
+                    <input type="hidden" value="@ViewBag.Color" asp-for="ProductColor" class="form-control" />
+                    <input type="hidden" value="@ViewBag.ProductNumber" asp-for="ProductNumber" class="form-control" />
+                    <input type="hidden" value="@ViewBag.ProductId" asp-for="ProductId" class="form-control" />
+                    <span asp-validation-for="Price" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="TypeId" class="control-label"></label>
+                    <p>@ViewBag.TypeId</p>
+
+                    <span asp-validation-for="ProductSize" class="text-danger"></span>
+                </div>
+                <div class="form-group">
                     <label asp-for="ProductSize" class="control-label"></label>
-                    <select asp-for="ProductSize" class="form-control" asp-items="ViewBag.Sizes"></select>
+                    <p>@ViewBag.Size</p>
+
                     <span asp-validation-for="ProductSize" class="text-danger"></span>
                 </div>
                 <div class="form-group">
                     <label asp-for="ProductColor" class="control-label"></label>
-                    <select asp-for="ProductColor" class="form-control" asp-items="ViewBag.Colors"></select>
+                    <p>@ViewBag.Color</p>
+
                     <span asp-validation-for="ProductColor" class="text-danger"></span>
                 </div>
-                <div class="form-group">
-                    <input type="hidden" value="0" asp-for="ProductNumber" class="form-control" />
-                    <span asp-validation-for="ProductNumber" class="text-danger"></span>
-                </div>
-                <div class="form-group">
-                    <label asp-for="OrderId" class="control-label"></label>
-                    <select asp-for="OrderId" class="form-control" asp-items="ViewBag.OrderId"></select>
-                </div>
+
+
                 <div class="form-group">
                     <input type="submit" value="Create" class="btn btn-primary" />
                 </div>

@@ -25,6 +25,8 @@ namespace backend.Controllers
         {
             if (Id != null)
             {
+                 ViewData["Sizes"] = await _context.ProductSize.ToListAsync();
+                ViewData["Colors"] = await _context.ProductColor.ToListAsync();
                 var catalogDBContext = _context.ProductType.Include(p => p.Product).Where(s => s.ProductId == Convert.ToInt32(Id));
                 return View(await catalogDBContext.ToListAsync());
             }

@@ -47,13 +47,15 @@ namespace backend.Controllers
         }
 
         // GET: OrderProducts/Create
-        public IActionResult Create()
+        public IActionResult Create(int id, string color, string size, string productName, string productNumber, int productId)
         {
-            ViewData["Products"] = new SelectList(_context.Product, "Id", "Name");
-            ViewData["Sizes"] = new SelectList(_context.ProductSize, "Size", "Size");
-            ViewData["Colors"] = new SelectList(_context.ProductColor, "Color", "Color");
+            ViewData["TypeId"] = id;
+            ViewData["Color"] = color;
+            ViewData["Size"] = size;
+            ViewData["ProductId"] = productId;
+            ViewData["ProductNumber"] =  productNumber;
+            ViewData["ProductName"] =  productName;
             ViewData["OrderId"] = new SelectList(_context.Order, "Id", "OrderNumber");
-            ViewData["TypeId"] = new SelectList(_context.Order, "Id", "ProductSize", "ProductColor");
             return View();
         }
 
