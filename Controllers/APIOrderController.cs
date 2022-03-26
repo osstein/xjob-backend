@@ -26,7 +26,7 @@ namespace backend.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Order>>> GetOrder()
         {
-            return await _context.Order.Include(p=>p.OrderProducts).ToListAsync();
+            return await _context.Order.Include(p => p.OrderProducts).ToListAsync();
         }
 
         // GET: api/APIOrder/5
@@ -81,21 +81,27 @@ namespace backend.Controllers
                 //Behöver hämta in produkt till prissättning
                 var product = await _context.Product.FindAsync(item.ProductId);
                 // Lägg moms till moms total
-                VatTotal += (product.Vat / 100) * (product.Price * item.Amount);
-                //Behöver hämta pris från katalogen
-                item.Price = product.Price; 
+                var newVat = (product.Vat / 100) * product.Price;
                 if (product.Discount != 0)
                 {
-                    var ProductDiscountFactor = product.Discount / 100;
-                    if (ProductDiscountFactor > discountFactor)
-                    {
-                        discountFactor = ProductDiscountFactor;
-                    }
+                    var ProductDiscountFactor = (1 - (product.Discount / 100));
+                    newVat = product.Price * item.Amount * ProductDiscountFactor * (product.Vat / 100);
                 }
+
+                VatTotal += newVat;
+                //Behöver hämta pris från katalogen
+
+                item.Price = product.Price;
+                if (product.Discount != 0)
+                {
+                    var ProductDiscountFactor = (1 - (product.Discount / 100));
+                    item.Price = product.Price * item.Amount * ProductDiscountFactor;
+                }
+                // Lägg Pris till pris total
+                PriceTotal += item.Price;
                 //Produkt nummer
                 item.ProductNumber = product.ProductNumber;
-                // Lägg Pris till pris total
-                PriceTotal += (product.Price * item.Amount);
+
                 //Uppdatera saldon i produkter
                 var type = await _context.ProductType.FindAsync(item.TypeId);
                 type.Amount -= item.Amount;
