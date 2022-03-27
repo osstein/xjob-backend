@@ -145,6 +145,16 @@ namespace backend.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
+            var orderProducts = from OrderProducts in _context.OrderProducts select OrderProducts; ;
+
+            foreach (var item in orderProducts)
+            {
+                if (item.OrderId == id)
+                {
+                    _context.OrderProducts.Remove(item);
+                }
+            }
+
             var order = await _context.Order.FindAsync(id);
             _context.Order.Remove(order);
             await _context.SaveChangesAsync();
