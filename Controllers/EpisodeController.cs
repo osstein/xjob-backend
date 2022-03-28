@@ -71,7 +71,7 @@ private readonly IWebHostEnvironment _hostEnvironment;
                     string url = Path.Combine("/episodes/" + name);
                     episode.FilePath = url;
                     //Store file
-                    using (var FileStream = new FileStream(wwwRoot + "/images/" + name, FileMode.Create))
+                    using (var FileStream = new FileStream(wwwRoot + "/episodes/" + name, FileMode.Create))
                     {
                         await episode.File.CopyToAsync(FileStream);
                     }
