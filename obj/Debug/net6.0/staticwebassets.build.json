@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "df5C6mqLz2ectjL4T9SmXAtJ+1dJekFywC2vb01/dtI=",
+  "Hash": "wjNwk+Nflfvv3Ql/CmhoNuZUqrxr1+qxHBFAN/+3eJI=",
   "Source": "backend",
   "BasePath": "_content/backend",
   "Mode": "Default",
@@ -1224,6 +1224,23 @@
       "OriginalItemSpec": "wwwroot\\images\\DSCF00052022032335338.jpg"
     },
     {
+      "Identity": "C:\\xampp\\htdocs\\xjobb\\backend\\wwwroot\\images\\DSCF0236 (2)2022032836278.jpg",
+      "SourceId": "backend",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\xampp\\htdocs\\xjobb\\backend\\wwwroot\\",
+      "BasePath": "_content/backend",
+      "RelativePath": "images/DSCF0236 (2)2022032836278.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\DSCF0236 (2)2022032836278.jpg"
+    },
+    {
       "Identity": "C:\\xampp\\htdocs\\xjobb\\backend\\wwwroot\\images\\f611e1fe47e19564cc2af8f62a53c93f2022032306790.jpg",
       "SourceId": "backend",
       "SourceType": "Discovered",
@@ -1239,23 +1256,6 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\images\\f611e1fe47e19564cc2af8f62a53c93f2022032306790.jpg"
-    },
-    {
-      "Identity": "C:\\xampp\\htdocs\\xjobb\\backend\\wwwroot\\images\\Flygskam Bankock2022032839329.mp4",
-      "SourceId": "backend",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\xampp\\htdocs\\xjobb\\backend\\wwwroot\\",
-      "BasePath": "_content/backend",
-      "RelativePath": "images/Flygskam Bankock2022032839329.mp4",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\images\\Flygskam Bankock2022032839329.mp4"
     },
     {
       "Identity": "C:\\xampp\\htdocs\\xjobb\\backend\\wwwroot\\images\\P10101862022032304045.jpg",
@@ -1360,6 +1360,23 @@
       "OriginalItemSpec": "wwwroot\\images\\P10101862022032723127.jpg"
     },
     {
+      "Identity": "C:\\xampp\\htdocs\\xjobb\\backend\\wwwroot\\images\\P10101862022032821252.jpg",
+      "SourceId": "backend",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\xampp\\htdocs\\xjobb\\backend\\wwwroot\\",
+      "BasePath": "_content/backend",
+      "RelativePath": "images/P10101862022032821252.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\P10101862022032821252.jpg"
+    },
+    {
       "Identity": "C:\\xampp\\htdocs\\xjobb\\backend\\wwwroot\\images\\pexels-anna-shvets-45879552022032525276.jpg",
       "SourceId": "backend",
       "SourceType": "Discovered",
@@ -1460,6 +1477,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\images\\pexels-monstera-63112502022032644156.jpg"
+    },
+    {
+      "Identity": "C:\\xampp\\htdocs\\xjobb\\backend\\wwwroot\\images\\pexels-monstera-63112502022032851257.jpg",
+      "SourceId": "backend",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\xampp\\htdocs\\xjobb\\backend\\wwwroot\\",
+      "BasePath": "_content/backend",
+      "RelativePath": "images/pexels-monstera-63112502022032851257.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\pexels-monstera-63112502022032851257.jpg"
     },
     {
       "Identity": "C:\\xampp\\htdocs\\xjobb\\backend\\wwwroot\\images\\pexels-monstera-63112512022032628686.jpg",
@@ -1579,6 +1613,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\images\\pexels-the-happiest-face-)-12614222022032601628.jpg"
+    },
+    {
+      "Identity": "C:\\xampp\\htdocs\\xjobb\\backend\\wwwroot\\images\\pexels-the-happiest-face-)-12614222022032802027.jpg",
+      "SourceId": "backend",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\xampp\\htdocs\\xjobb\\backend\\wwwroot\\",
+      "BasePath": "_content/backend",
+      "RelativePath": "images/pexels-the-happiest-face-)-12614222022032802027.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\pexels-the-happiest-face-)-12614222022032802027.jpg"
     },
     {
       "Identity": "C:\\xampp\\htdocs\\xjobb\\backend\\wwwroot\\images\\pexels-vladislav-murashko-60330232022032520586.jpg",
