@@ -14,10 +14,11 @@ namespace backend.Controllers
     public class EpisodeController : Controller
     {
         private readonly CatalogDBContext _context;
-
-        public EpisodeController(CatalogDBContext context)
+private readonly IWebHostEnvironment _hostEnvironment;
+        public EpisodeController(CatalogDBContext context, IWebHostEnvironment hostEnvironment)
         {
             _context = context;
+            _hostEnvironment = hostEnvironment;
         }
 
         // GET: Episode
@@ -54,11 +55,30 @@ namespace backend.Controllers
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
+        [RequestSizeLimit(100_000_000_000)]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Title,Description,S,E,FilePath,Timestamp")] Episode episode)
+        public async Task<IActionResult> Create([Bind("Id,Title,Description,S,E,File,FilePath,Timestamp")] Episode episode)
         {
             if (ModelState.IsValid)
             {
+                string wwwRoot = _hostEnvironment.WebRootPath; // wwwroot path
+                if (episode.File != null)
+                {
+                    // Adjust image filename
+                    string filename = Path.GetFileNameWithoutExtension(episode.File.FileName); // Filename
+                    string extention = Path.GetExtension(episode.File.FileName); // extention
+                    string name = filename + DateTime.Now.ToString("yyyyMMddssfff") + extention;
+                    string url = Path.Combine("/episodes/" + name);
+                    episode.FilePath = url;
+                    //Store file
+                    using (var FileStream = new FileStream(wwwRoot + "/images/" + name, FileMode.Create))
+                    {
+                        await episode.File.CopyToAsync(FileStream);
+                    }
+                    //editImages(name);
+                }
+
+
                 _context.Add(episode);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
