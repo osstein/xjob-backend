@@ -19,7 +19,7 @@
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.Title)
+                @Html.ActionLink("Title", "Index", new { sortOrder = ViewBag.NameSortParm })
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Content)
@@ -31,7 +31,7 @@
                 @Html.DisplayNameFor(model => model.ImageAlt)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Timestamp)
+                @Html.ActionLink("Publish Date", "Index", new { sortOrder = ViewBag.DateSortParm })
             </th>
             <th></th>
         </tr>

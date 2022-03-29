@@ -25,7 +25,7 @@
                     Images
                 </th>
                 <th>
-                    @Html.DisplayNameFor(model => model.Name)
+                    @Html.ActionLink("Name", "Index", new { sortOrder = ViewBag.NameSortParm })
                 </th>
                 <th>
                     @Html.DisplayNameFor(model => model.Price)
@@ -46,7 +46,7 @@
                     Categories
                 </th>
                 <th>
-                    @Html.DisplayNameFor(model => model.Timestamp)
+                    @Html.ActionLink("Skapad", "Index", new { sortOrder = ViewBag.DateSortParm })
                 </th>
                 <th></th>
             </tr>

@@ -23,9 +23,28 @@ namespace backend.Controllers
         }
 
         // GET: News
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string sortOrder, string searchString)
         {
-            return View(await _context.News.ToListAsync());
+            ViewBag.NameSortParm = String.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
+            ViewBag.DateSortParm = sortOrder == "Date" ? "date_desc" : "Date";
+            var NewsList = from News in _context.News
+                           select News;
+            switch (sortOrder)
+            {
+                case "name_desc":
+                    NewsList = NewsList.OrderByDescending(s => s.Title);
+                    break;
+                case "Date":
+                    NewsList = NewsList.OrderBy(s => s.Timestamp);
+                    break;
+                case "date_desc":
+                    NewsList = NewsList.OrderByDescending(s => s.Timestamp);
+                    break;
+                default:
+                    NewsList = NewsList.OrderBy(s => s.Title);
+                    break;
+            }
+            return View(await NewsList.ToListAsync());
         }
 
         // GET: News/Details/5

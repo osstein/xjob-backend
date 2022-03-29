@@ -21,7 +21,7 @@ namespace backend.Controllers
         }
 
         // GET: Product
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string sortOrder)
         {
             var sub = from CatalogSubCategories in _context.CatalogSubCategories select CatalogSubCategories;
             var main = from CatalogCategories in _context.CatalogCategories select CatalogCategories;
@@ -37,13 +37,34 @@ namespace backend.Controllers
                 }
             }
             ViewData["Categories"] = await sub.ToListAsync();
-
             var Images = from ProductImages in _context.ProductImages select ProductImages;
             ViewData["Images"] = await Images.ToListAsync();
 
 
-            var catalogDBContext = _context.Product.Include(p => p.CatalogSubCategories);
-            return View(await catalogDBContext.ToListAsync());
+            var catalogDBContext = from product in _context.Product.Include(p => p.CatalogSubCategories) select product;
+
+            ViewBag.NameSortParm = String.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
+            ViewBag.DateSortParm = sortOrder == "Date" ? "date_desc" : "Date";
+
+            switch (sortOrder)
+            {
+                case "name_desc":
+                    catalogDBContext = catalogDBContext.OrderByDescending(s => s.Name);
+                    break;
+                case "Date":
+                    catalogDBContext = catalogDBContext.OrderBy(s => s.Timestamp);
+                    break;
+                case "date_desc":
+                    catalogDBContext = catalogDBContext.OrderByDescending(s => s.Timestamp);
+                    break;
+                default:
+                    catalogDBContext = catalogDBContext.OrderBy(s => s.Name);
+                    break;
+            }
+
+
+
+            return View( await catalogDBContext.ToListAsync());
         }
 
         // GET: Product/Details/5
