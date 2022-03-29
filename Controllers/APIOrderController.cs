@@ -100,11 +100,11 @@ namespace backend.Controllers
                 item.Price = product.Price;
                 if (product.Discount != 0)
                 {
-                    var ProductDiscountFactor = (1 - (product.Discount / 100));
-                    item.Price = product.Price * item.Amount * ProductDiscountFactor;
+                    var ProductDiscountFactor = (100 - product.Discount) / 100;
+                    item.Price = product.Price * ProductDiscountFactor;
                 }
                 // Lägg Pris till pris total
-                PriceTotal += item.Price;
+                PriceTotal += item.Price * item.Amount;
                 //Produkt nummer
                 item.ProductNumber = product.ProductNumber;
 
@@ -124,7 +124,7 @@ namespace backend.Controllers
                 var Product = await _context.Product.FindAsync(item.ProductId);
                 item.ProductNumber = Product.ProductNumber;
 
-                mailProducts += "<tr><td>" + product.Name + "</td><td>" + product.ProductNumber + "</td><td>" + item.ProductColor + "</td><td>" + item.ProductSize + "</td><td>" + item.Price + "</td></tr>";
+                mailProducts += "<tr><td>"+ item.Amount +"</td><td>" + product.Name + "</td><td>" + product.ProductNumber + "</td><td>" + item.ProductColor + "</td><td>" + item.ProductSize + "</td><td>" + (item.Price * item.Amount) + "</td></tr>";
 
                 _context.OrderProducts.Add(item);
                 await _context.SaveChangesAsync();
@@ -147,7 +147,7 @@ namespace backend.Controllers
             msg.From = new MailAddress("bashpoddenxjob@gmail.com");
             msg.To.Add(OrderPostRequest.Order.CustomerMail);
             msg.Subject = "BASHPODDEN - Din Beställning:" + OrderPostRequest.Order.ReceiptNumber + " - " + OrderPostRequest.Order.Timestamp;
-            msg.Body = "<h1>Hej " + OrderPostRequest.Order.CustomerFirstName + " " + OrderPostRequest.Order.CustomerLastName + "!</h1><br><p>Här kommer en bekräftelse på din beställning med kvittonummer:" + OrderPostRequest.Order.ReceiptNumber + "</p><table style='width:100%; text-align:left;'><thead><tr><th>Produkt</th><th>Artikel Nummer</th><th>Färg</th><th>Storlek</th><th>Pris</th></tr></thead><tbody>" + mailProducts + "<tr><td></td><td></td><td></td><td style='text-align:right;' >Summa:</td><td>" + OrderPostRequest.Order.PriceTotal + "</td></tr><tr><td></td><td></td><td></td><td style='text-align:right;'>Varav Moms:</td><td>" + OrderPostRequest.Order.VatTotal + "</td></tr></tbody></table><p>Observera att detta mail också gäller som kvitto på din beställning</p><ul><li>Beställare: " + OrderPostRequest.Order.CustomerFirstName + " " + OrderPostRequest.Order.CustomerLastName + "</li><li>Telefonnummer: " + OrderPostRequest.Order.CustomerPhone + "</li><li>E-mail: " + OrderPostRequest.Order.CustomerMail + "</li><li>Kvittonummer: " + OrderPostRequest.Order.ReceiptNumber + "</li><li>Ordernummer: " + OrderPostRequest.Order.OrderNumber + "</li></ul><ul><li>Bashpodden</li><li>Gatan 3, 137 19, Långtbortistan</li><li>Bankgiro: 9845-789</li><li>" + OrderPostRequest.Order.Timestamp + "</li></ul><h2>Hälsningar Bashpodden</h2>";
+            msg.Body = "<h1>Hej " + OrderPostRequest.Order.CustomerFirstName + " " + OrderPostRequest.Order.CustomerLastName + "!</h1><br><p>Här kommer en bekräftelse på din beställning med kvittonummer:" + OrderPostRequest.Order.ReceiptNumber + "</p><table style='width:100%; text-align:left;'><thead><tr><th>Antal</th><th>Produkt</th><th>Artikel Nummer</th><th>Färg</th><th>Storlek</th><th>Pris</th></tr></thead><tbody>" + mailProducts + "<tr><td></td><td></td><td></td><td></td><td style='text-align:right;' >Summa:</td><td>" + OrderPostRequest.Order.PriceTotal + "</td></tr><tr><td></td><td></td><td></td><td></td><td style='text-align:right;'>Varav Moms:</td><td>" + OrderPostRequest.Order.VatTotal + "</td></tr><tr><td></td><td></td><td style='text-align:right;'>Rabattkod:</td><td>"+OrderPostRequest.Order.DiscountCode+"</td><td style='text-align:right;'>Total Rabatt:</td><td>" + OrderPostRequest.Order.DiscountTotal + "</td></tr><tr><td></td><td></td><td></td><td></td><td style='text-align:right;' >Summa efter rabatt:</td><td>" + (OrderPostRequest.Order.PriceTotal - OrderPostRequest.Order.DiscountTotal) + "</td></tr></tbody></table><p>Observera att detta mail också gäller som kvitto på din beställning</p><ul><li>Beställare: " + OrderPostRequest.Order.CustomerFirstName + " " + OrderPostRequest.Order.CustomerLastName + "</li><li>Telefonnummer: " + OrderPostRequest.Order.CustomerPhone + "</li><li>E-mail: " + OrderPostRequest.Order.CustomerMail + "</li><li>Kvittonummer: " + OrderPostRequest.Order.ReceiptNumber + "</li><li>Ordernummer: " + OrderPostRequest.Order.OrderNumber + "</li></ul><ul><li>Bashpodden</li><li>Gatan 3, 137 19, Långtbortistan</li><li>Bankgiro: 9845-789</li><li>" + OrderPostRequest.Order.Timestamp + "</li></ul><h2>Hälsningar Bashpodden</h2>";
             msg.IsBodyHtml = true;
             //msg.Priority = MailPriority.High;
 
@@ -156,7 +156,7 @@ namespace backend.Controllers
             {
                 client.EnableSsl = true;
                 client.UseDefaultCredentials = false;
-                client.Credentials = new NetworkCredential("bashpoddenxjob@gmail.com", "HH1");
+                client.Credentials = new NetworkCredential("bashpoddenxjob@gmail.com", "HH23");
                 client.Host = "smtp.gmail.com";
                 client.Port = 587;
                 client.DeliveryMethod = SmtpDeliveryMethod.Network;
