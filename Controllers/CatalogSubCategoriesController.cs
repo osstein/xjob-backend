@@ -24,7 +24,7 @@ namespace backend.Controllers
         public async Task<IActionResult> Index()
         {
             var catalogDBContext = _context.CatalogSubCategories.Include(c => c.CatalogCategories);
-            return View(await catalogDBContext.ToListAsync());
+            return View(await catalogDBContext.OrderBy(s => s.Category).ToListAsync());
         }
 
         // GET: CatalogSubCategories/Details/5

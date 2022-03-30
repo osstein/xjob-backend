@@ -25,10 +25,10 @@
                 @Html.DisplayNameFor(model => model.Discount)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.CampaignStart)
+                @Html.ActionLink("Start", "Index", new { sortOrder = ViewBag.StartSortParm })
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.CampaignEnd)
+                @Html.ActionLink("End", "Index", new { sortOrder = ViewBag.EndSortParm })
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Timestamp)

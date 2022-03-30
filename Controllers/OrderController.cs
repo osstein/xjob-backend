@@ -21,9 +21,57 @@ namespace backend.Controllers
         }
 
         // GET: Order
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string sortOrder)
         {
-            return View(await _context.Order.ToListAsync());
+            ViewBag.IdSortParm = String.IsNullOrEmpty(sortOrder) ? "Id_desc" : "";
+            ViewBag.DateSortParm = sortOrder == "Date" ? "date_desc" : "Date";
+            ViewBag.ONSortParm = sortOrder == "ordernumber" ? "ordernumber_desc" : "ordernumber";
+            ViewBag.RNSortParm = sortOrder == "receiptnumber" ? "receiptnumber_desc" : "receiptnumber";
+            ViewBag.MAILSortParm = sortOrder == "mail" ? "mail_desc" : "mail";
+            ViewBag.PAYMENTSortParm = sortOrder == "payment" ? "payment_desc" : "payment";
+            var objects = from order in _context.Order
+                          select order;
+            switch (sortOrder)
+            {
+                case "Id_desc":
+                    objects = objects.OrderByDescending(s => s.Id);
+                    break;
+                case "Date":
+                    objects = objects.OrderBy(s => s.Timestamp);
+                    break;
+                case "date_desc":
+                    objects = objects.OrderByDescending(s => s.Timestamp);
+                    break;
+                case "ordernumber":
+                    objects = objects.OrderBy(s => s.OrderNumber);
+                    break;
+                case "ordernumber_desc":
+                    objects = objects.OrderByDescending(s => s.OrderNumber);
+                    break;
+                case "receiptnumber":
+                    objects = objects.OrderBy(s => s.ReceiptNumber);
+                    break;
+                case "receiptnumber_desc":
+                    objects = objects.OrderByDescending(s => s.ReceiptNumber);
+                    break;
+                case "mail":
+                    objects = objects.OrderBy(s => s.CustomerMail);
+                    break;
+                case "mail_desc":
+                    objects = objects.OrderByDescending(s => s.CustomerMail);
+                    break;
+            
+                case "payment":
+                    objects = objects.OrderBy(s => s.PaymentMethod);
+                    break;
+                case "payment_desc":
+                    objects = objects.OrderByDescending(s => s.PaymentMethod);
+                    break;
+                default:
+                    objects = objects.OrderBy(s => s.Id);
+                    break;
+            }
+            return View(await objects.ToListAsync());
         }
 
         // GET: Order/Details/5

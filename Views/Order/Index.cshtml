@@ -21,31 +21,23 @@
         <thead>
             <tr>
                 <th>
-                    @Html.DisplayNameFor(model => model.Id)
+                   @Html.ActionLink("Id", "Index", new { sortOrder = ViewBag.IdSortParm })
                 </th>
                 <th>
-                    @Html.DisplayNameFor(model => model.CustomerFirstName)
+                    @Html.DisplayNameFor(model => model.Status)
                 </th>
                 <th>
-                    @Html.DisplayNameFor(model => model.CustomerLastName)
+                   @Html.ActionLink("Ordernumber", "Index", new { sortOrder = ViewBag.ONSortParm })
                 </th>
                 <th>
-                    @Html.DisplayNameFor(model => model.CustomerMail)
+                    @Html.ActionLink("Receiptnumber", "Index", new { sortOrder = ViewBag.RNSortParm })
                 </th>
                 <th>
-                    @Html.DisplayNameFor(model => model.CustomerPhone)
+                    @Html.ActionLink("E-mail", "Index", new { sortOrder = ViewBag.MAILSortParm })
                 </th>
+
                 <th>
-                    @Html.DisplayNameFor(model => model.CustomerAdress)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.CustomerZip)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.CustomerCity)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.PriceTotal)
+                    @Html.ActionLink("Price", "Index", new { sortOrder = ViewBag.PRICESortParm })
                 </th>
                 <th>
                     @Html.DisplayNameFor(model => model.VatTotal)
@@ -56,21 +48,14 @@
                 <th>
                     @Html.DisplayNameFor(model => model.DiscountCode)
                 </th>
+
                 <th>
-                    @Html.DisplayNameFor(model => model.OrderNumber)
+                    @Html.ActionLink("Payment", "Index", new { sortOrder = ViewBag.PAYMENTSortParm })
                 </th>
                 <th>
-                    @Html.DisplayNameFor(model => model.ReceiptNumber)
+                    @Html.ActionLink("Timestamp", "Index", new { sortOrder = ViewBag.DateSortParm })
                 </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.PaymentMethod)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Timestamp)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Status)
-                </th>
+
                 <th></th>
             </tr>
         </thead>
@@ -82,26 +67,18 @@
                         @Html.DisplayFor(modelItem => item.Id)
                     </td>
                     <td>
-                        @Html.DisplayFor(modelItem => item.CustomerFirstName)
+                        @Html.DisplayFor(modelItem => item.Status)
                     </td>
                     <td>
-                        @Html.DisplayFor(modelItem => item.CustomerLastName)
+                        @Html.DisplayFor(modelItem => item.OrderNumber)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ReceiptNumber)
                     </td>
                     <td>
                         @Html.DisplayFor(modelItem => item.CustomerMail)
                     </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.CustomerPhone)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.CustomerAdress)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.CustomerZip)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.CustomerCity)
-                    </td>
+
                     <td>
                         @Html.DisplayFor(modelItem => item.PriceTotal)
                     </td>
@@ -114,21 +91,14 @@
                     <td>
                         @Html.DisplayFor(modelItem => item.DiscountCode)
                     </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.OrderNumber)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.ReceiptNumber)
-                    </td>
+
                     <td>
                         @Html.DisplayFor(modelItem => item.PaymentMethod)
                     </td>
                     <td>
                         @Html.DisplayFor(modelItem => item.Timestamp)
                     </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Status)
-                    </td>
+
                     <td>
                         <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
                         <a asp-action="Details" asp-route-id="@item.Id">Details</a> |

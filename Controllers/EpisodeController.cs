@@ -75,10 +75,7 @@ private readonly IWebHostEnvironment _hostEnvironment;
                     {
                         await episode.File.CopyToAsync(FileStream);
                     }
-                    //editImages(name);
                 }
-
-
                 _context.Add(episode);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));

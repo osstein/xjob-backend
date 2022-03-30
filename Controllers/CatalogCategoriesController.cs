@@ -23,7 +23,7 @@ namespace backend.Controllers
         // GET: CatalogCategories
         public async Task<IActionResult> Index()
         {
-            return View(await _context.CatalogCategories.ToListAsync());
+            return View(await _context.CatalogCategories.OrderBy(s => s.Category).ToListAsync());
         }
 
         // GET: CatalogCategories/Details/5

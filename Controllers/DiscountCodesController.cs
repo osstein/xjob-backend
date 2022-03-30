@@ -21,9 +21,35 @@ namespace backend.Controllers
         }
 
         // GET: DiscountCodes
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string sortOrder)
         {
-            return View(await _context.DiscountCodes.ToListAsync());
+
+            
+            ViewBag.StartSortParm = sortOrder == "start" ? "start_desc" : "start";
+            ViewBag.EndSortParm = sortOrder == "end" ? "end_desc" : "end";
+            var Objects = from discountCodes in _context.DiscountCodes
+                           select discountCodes;
+            switch (sortOrder)
+            {
+                
+                case "start":
+                    Objects = Objects.OrderBy(s => s.CampaignStart);
+                    break;
+                case "start_desc":
+                    Objects = Objects.OrderByDescending(s => s.CampaignStart);
+                    break;
+                    case "end":
+                    Objects = Objects.OrderBy(s => s.CampaignEnd);
+                    break;
+                case "end_desc":
+                    Objects = Objects.OrderByDescending(s => s.CampaignEnd);
+                    break;
+                default:
+                    Objects = Objects.OrderByDescending(s => s.Timestamp);
+                    break;
+            }
+            
+            return View(await Objects.ToListAsync());
         }
 
         // GET: DiscountCodes/Details/5

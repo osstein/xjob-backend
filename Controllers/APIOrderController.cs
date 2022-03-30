@@ -87,7 +87,7 @@ namespace backend.Controllers
 
 
                 // Lägg moms till moms total
-                var newVat = (product.Vat / 100) * product.Price;
+                var newVat = (product.Vat / 100) * product.Price * item.Amount;
                 if (product.Discount != 0)
                 {
                     var ProductDiscountFactor = (1 - (product.Discount / 100));
@@ -156,7 +156,7 @@ namespace backend.Controllers
             {
                 client.EnableSsl = true;
                 client.UseDefaultCredentials = false;
-                client.Credentials = new NetworkCredential("bashpoddenxjob@gmail.com", "HH23");
+                client.Credentials = new NetworkCredential("bashpoddenxjob@gmail.com", "HejHej123");
                 client.Host = "smtp.gmail.com";
                 client.Port = 587;
                 client.DeliveryMethod = SmtpDeliveryMethod.Network;

@@ -23,7 +23,7 @@ namespace backend.Controllers
         // GET: ProductSize
         public async Task<IActionResult> Index()
         {
-            return View(await _context.ProductSize.ToListAsync());
+            return View(await _context.ProductSize.OrderBy(s => s.Size).ToListAsync());
         }
 
         // GET: ProductSize/Details/5

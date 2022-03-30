@@ -23,7 +23,7 @@ namespace backend.Controllers
         // GET: ProductColor
         public async Task<IActionResult> Index()
         {
-            return View(await _context.ProductColor.ToListAsync());
+            return View(await _context.ProductColor.OrderBy(s => s.Color).ToListAsync());
         }
 
         // GET: ProductColor/Details/5
