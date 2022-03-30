@@ -29,6 +29,7 @@ namespace backend.Controllers
             ViewBag.RNSortParm = sortOrder == "receiptnumber" ? "receiptnumber_desc" : "receiptnumber";
             ViewBag.MAILSortParm = sortOrder == "mail" ? "mail_desc" : "mail";
             ViewBag.PAYMENTSortParm = sortOrder == "payment" ? "payment_desc" : "payment";
+            ViewBag.STATUSSortParm = sortOrder == "status" ? "status_desc" : "status";
             var objects = from order in _context.Order
                           select order;
             switch (sortOrder)
@@ -66,6 +67,12 @@ namespace backend.Controllers
                     break;
                 case "payment_desc":
                     objects = objects.OrderByDescending(s => s.PaymentMethod);
+                    break;
+                     case "status":
+                    objects = objects.OrderBy(s => s.Status);
+                    break;
+                case "status_desc":
+                    objects = objects.OrderByDescending(s => s.Status);
                     break;
                 default:
                     objects = objects.OrderBy(s => s.Id);

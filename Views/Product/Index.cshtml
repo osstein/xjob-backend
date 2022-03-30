@@ -40,7 +40,7 @@
                     @Html.DisplayNameFor(model => model.Description)
                 </th>
                 <th>
-                    @Html.DisplayNameFor(model => model.ProductNumber)
+                    @Html.ActionLink("Produkt Nummer", "Index", new { sortOrder = ViewBag.PNRSortParm })
                 </th>
                 <th>
                     Categories

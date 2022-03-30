@@ -45,6 +45,7 @@ namespace backend.Controllers
 
             ViewBag.NameSortParm = String.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
             ViewBag.DateSortParm = sortOrder == "Date" ? "date_desc" : "Date";
+            ViewBag.PNRSortParm = sortOrder == "productnr" ? "productnr_desc" : "productnr";
 
             switch (sortOrder)
             {
@@ -57,6 +58,12 @@ namespace backend.Controllers
                 case "date_desc":
                     catalogDBContext = catalogDBContext.OrderByDescending(s => s.Timestamp);
                     break;
+                case "productnr":
+                    catalogDBContext = catalogDBContext.OrderBy(s => s.ProductNumber);
+                    break;
+                case "productnr_desc":
+                    catalogDBContext = catalogDBContext.OrderByDescending(s => s.ProductNumber);
+                    break;
                 default:
                     catalogDBContext = catalogDBContext.OrderBy(s => s.Name);
                     break;
@@ -64,7 +71,7 @@ namespace backend.Controllers
 
 
 
-            return View( await catalogDBContext.ToListAsync());
+            return View(await catalogDBContext.ToListAsync());
         }
 
         // GET: Product/Details/5

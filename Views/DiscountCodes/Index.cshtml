@@ -19,7 +19,7 @@
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.Code)
+                @Html.ActionLink("Code", "Index", new { sortOrder = ViewBag.CodeSortParm })
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Discount)
@@ -31,7 +31,7 @@
                 @Html.ActionLink("End", "Index", new { sortOrder = ViewBag.EndSortParm })
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Timestamp)
+                @Html.ActionLink("Timestamp", "Index", new { sortOrder = ViewBag.TimestampSortParm })
             </th>
             <th></th>
         </tr>

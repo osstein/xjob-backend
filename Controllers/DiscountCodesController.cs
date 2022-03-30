@@ -24,31 +24,45 @@ namespace backend.Controllers
         public async Task<IActionResult> Index(string sortOrder)
         {
 
-            
+
             ViewBag.StartSortParm = sortOrder == "start" ? "start_desc" : "start";
             ViewBag.EndSortParm = sortOrder == "end" ? "end_desc" : "end";
+            ViewBag.CodeSortParm = sortOrder == "code" ? "code_desc" : "code";
+            ViewBag.TimestampSortParm = sortOrder == "timestamp" ? "timestamp_desc" : "timestamp";
             var Objects = from discountCodes in _context.DiscountCodes
-                           select discountCodes;
+                          select discountCodes;
             switch (sortOrder)
             {
-                
+
                 case "start":
                     Objects = Objects.OrderBy(s => s.CampaignStart);
                     break;
                 case "start_desc":
                     Objects = Objects.OrderByDescending(s => s.CampaignStart);
                     break;
-                    case "end":
+                case "end":
                     Objects = Objects.OrderBy(s => s.CampaignEnd);
                     break;
                 case "end_desc":
                     Objects = Objects.OrderByDescending(s => s.CampaignEnd);
                     break;
+                case "code":
+                    Objects = Objects.OrderBy(s => s.Code);
+                    break;
+                case "code_desc":
+                    Objects = Objects.OrderByDescending(s => s.Code);
+                    break;
+                case "timestamp":
+                    Objects = Objects.OrderBy(s => s.Timestamp);
+                    break;
+                case "timestamp_desc":
+                    Objects = Objects.OrderByDescending(s => s.Timestamp);
+                    break;
                 default:
                     Objects = Objects.OrderByDescending(s => s.Timestamp);
                     break;
             }
-            
+
             return View(await Objects.ToListAsync());
         }
 
