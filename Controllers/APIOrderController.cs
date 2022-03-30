@@ -156,7 +156,7 @@ namespace backend.Controllers
             {
                 client.EnableSsl = true;
                 client.UseDefaultCredentials = false;
-                client.Credentials = new NetworkCredential("bashpoddenxjob@gmail.com", "HejHej123");
+                client.Credentials = new NetworkCredential("bashpoddenxjob@gmail.com", "HH12");
                 client.Host = "smtp.gmail.com";
                 client.Port = 587;
                 client.DeliveryMethod = SmtpDeliveryMethod.Network;
