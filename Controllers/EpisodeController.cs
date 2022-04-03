@@ -55,7 +55,7 @@ private readonly IWebHostEnvironment _hostEnvironment;
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
-        [RequestSizeLimit(100_000_000_000)]
+        [DisableRequestSizeLimit]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("Id,Title,Description,S,E,File,FilePath,Timestamp")] Episode episode)
         {
