@@ -46,6 +46,7 @@ namespace backend.Controllers
             ViewBag.NameSortParm = String.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
             ViewBag.DateSortParm = sortOrder == "Date" ? "date_desc" : "Date";
             ViewBag.PNRSortParm = sortOrder == "productnr" ? "productnr_desc" : "productnr";
+            ViewBag.PriceSortParm = sortOrder == "price" ? "price_desc" : "price";
 
             switch (sortOrder)
             {
@@ -62,8 +63,14 @@ namespace backend.Controllers
                     catalogDBContext = catalogDBContext.OrderBy(s => s.ProductNumber);
                     break;
                 case "productnr_desc":
-                    catalogDBContext = catalogDBContext.OrderByDescending(s => s.ProductNumber);
+                    catalogDBContext = catalogDBContext.OrderByDescending(s => s.Price);
                     break;
+                /* case "price":
+                    catalogDBContext = catalogDBContext.OrderBy(s => s.Price);
+                    break;
+                case "price_desc":
+                    catalogDBContext = catalogDBContext.OrderByDescending(s => s.ProductNumber);
+                    break; */
                 default:
                     catalogDBContext = catalogDBContext.OrderBy(s => s.Name);
                     break;

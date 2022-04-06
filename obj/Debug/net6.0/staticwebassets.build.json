@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "XVA34DAR48P5F9smSHjJkdJWW2B4MlikJp1bpRIrsp0=",
+  "Hash": "J3sYKqB7MC6Jcxf95NVDyfWBQRvgjNso7LJ8FiK5gVw=",
   "Source": "backend",
   "BasePath": "_content/backend",
   "Mode": "Default",
@@ -1426,6 +1426,40 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\images\\f611e1fe47e19564cc2af8f62a53c93f2022032306790.jpg"
+    },
+    {
+      "Identity": "C:\\xampp\\htdocs\\xjobb\\backend\\wwwroot\\images\\Instagram Post – 22022040332928.png",
+      "SourceId": "backend",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\xampp\\htdocs\\xjobb\\backend\\wwwroot\\",
+      "BasePath": "_content/backend",
+      "RelativePath": "images/Instagram Post – 22022040332928.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\Instagram Post – 22022040332928.png"
+    },
+    {
+      "Identity": "C:\\xampp\\htdocs\\xjobb\\backend\\wwwroot\\images\\Instagram Post – 22022040344135.png",
+      "SourceId": "backend",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\xampp\\htdocs\\xjobb\\backend\\wwwroot\\",
+      "BasePath": "_content/backend",
+      "RelativePath": "images/Instagram Post – 22022040344135.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\Instagram Post – 22022040344135.png"
     },
     {
       "Identity": "C:\\xampp\\htdocs\\xjobb\\backend\\wwwroot\\images\\P10101862022032304045.jpg",

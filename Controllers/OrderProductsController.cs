@@ -21,9 +21,13 @@ namespace backend.Controllers
         }
 
         // GET: OrderProducts
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string Id)
         {
-            var catalogDBContext = _context.OrderProducts.Include(o => o.Order);
+            var catalogDBContext = from OrderProducts in _context.OrderProducts.Include(o => o.Order).Where(o => o.OrderId != null) select OrderProducts;
+            if (Id != null)
+            {
+                catalogDBContext = from OrderProducts in _context.OrderProducts.Include(o => o.Order).Where(o => o.OrderId == Convert.ToInt32(Id)) select OrderProducts;
+            }
             return View(await catalogDBContext.ToListAsync());
         }
 
@@ -53,8 +57,8 @@ namespace backend.Controllers
             ViewData["Color"] = color;
             ViewData["Size"] = size;
             ViewData["ProductId"] = productId;
-            ViewData["ProductNumber"] =  productNumber;
-            ViewData["ProductName"] =  productName;
+            ViewData["ProductNumber"] = productNumber;
+            ViewData["ProductName"] = productName;
             ViewData["OrderId"] = new SelectList(_context.Order, "Id", "OrderNumber");
             return View();
         }

@@ -53,14 +53,17 @@ namespace backend.Controllers
         {
 
             //Behöver hämta in discount från discount codes och kontrollera datum, tid och kod
-
+            //Discountdata 
             var discountData = from DiscountCodes in _context.DiscountCodes select DiscountCodes;
+            // Variables to store data
             decimal discountFactor = 0;
             decimal totalDiscountedFactor = 1;
             decimal PriceTotal = 0;
             decimal VatTotal = 0;
             decimal DiscountTotal = 0;
+            //Now variable
             DateTime dateNow = DateTime.Now;
+            //Check discount available
             foreach (var item in discountData)
             {
                 if (item.Code == OrderPostRequest.Order.DiscountCode && item.CampaignStart < dateNow && item.CampaignEnd > dateNow)
@@ -74,19 +77,19 @@ namespace backend.Controllers
             OrderPostRequest.Order.ReceiptNumber = "RN-" + new Random().Next(11) + "-" + DateTime.Now.ToString("yyyyMMddssfff");
             _context.Order.Add(OrderPostRequest.Order);
             await _context.SaveChangesAsync();
-
+            // Variable for mail construction
             var mailProducts = "";
 
-            // Behöver skriva produkter till tabell med Id för order 
+            // Add items with id for order
             foreach (var item in OrderPostRequest.OrderProducts)
             {
-                //Id för order som produkterna kopplas till
+                //Connectiing the id
                 item.OrderId = OrderPostRequest.Order.Id;
-                //Behöver hämta in produkt till prissättning
+                // Get product for price data etc. in database
                 var product = await _context.Product.FindAsync(item.ProductId);
 
 
-                // Lägg moms till moms total
+                //Add VAT to total
                 var newVat = (product.Vat / 100) * product.Price * item.Amount;
                 if (product.Discount != 0)
                 {
@@ -95,20 +98,22 @@ namespace backend.Controllers
                 }
 
                 VatTotal += newVat;
-                //Behöver hämta pris från katalogen
+                // Price from database
 
                 item.Price = product.Price;
+
+                //Add discount
                 if (product.Discount != 0)
                 {
                     var ProductDiscountFactor = (100 - product.Discount) / 100;
                     item.Price = product.Price * ProductDiscountFactor;
                 }
-                // Lägg Pris till pris total
+                // Add price to price total with the amount
                 PriceTotal += item.Price * item.Amount;
-                //Produkt nummer
+                //Set the product article number
                 item.ProductNumber = product.ProductNumber;
 
-                //Uppdatera saldon i produkter
+                //Update the amount in the database
                 var type = await _context.ProductType.FindAsync(item.TypeId);
                 type.Amount -= item.Amount;
                 if (type.Amount <= 0)
@@ -124,12 +129,12 @@ namespace backend.Controllers
                 var Product = await _context.Product.FindAsync(item.ProductId);
                 item.ProductNumber = Product.ProductNumber;
 
-                mailProducts += "<tr><td>"+ item.Amount +"</td><td>" + product.Name + "</td><td>" + product.ProductNumber + "</td><td>" + item.ProductColor + "</td><td>" + item.ProductSize + "</td><td>" + (item.Price * item.Amount) + "</td></tr>";
+                mailProducts += "<tr><td>" + item.Amount + "</td><td>" + product.Name + "</td><td>" + product.ProductNumber + "</td><td>" + item.ProductColor + "</td><td>" + item.ProductSize + "</td><td>" + (item.Price * item.Amount) + "</td></tr>";
 
                 _context.OrderProducts.Add(item);
                 await _context.SaveChangesAsync();
             }
-            // Total rabatt
+            //Total discount
             DiscountTotal = PriceTotal * discountFactor;
             // Set price values
             OrderPostRequest.Order.PriceTotal = PriceTotal;
@@ -137,21 +142,22 @@ namespace backend.Controllers
             OrderPostRequest.Order.DiscountTotal = DiscountTotal;
             OrderPostRequest.Order.Status = "New";
 
-
+            // Update and save
             _context.Order.Update(OrderPostRequest.Order);
             await _context.SaveChangesAsync();
 
-
+            //Mail the order to customer
             MailMessage msg = new MailMessage();
-
+            // Set mail parameters
             msg.From = new MailAddress("bashpoddenxjob@gmail.com");
             msg.To.Add(OrderPostRequest.Order.CustomerMail);
             msg.Subject = "BASHPODDEN - Din Beställning:" + OrderPostRequest.Order.ReceiptNumber + " - " + OrderPostRequest.Order.Timestamp;
-            msg.Body = "<h1>Hej " + OrderPostRequest.Order.CustomerFirstName + " " + OrderPostRequest.Order.CustomerLastName + "!</h1><br><p>Här kommer en bekräftelse på din beställning med kvittonummer:" + OrderPostRequest.Order.ReceiptNumber + "</p><table style='width:100%; text-align:left;'><thead><tr><th>Antal</th><th>Produkt</th><th>Artikel Nummer</th><th>Färg</th><th>Storlek</th><th>Pris</th></tr></thead><tbody>" + mailProducts + "<tr><td></td><td></td><td></td><td></td><td style='text-align:right;' >Summa:</td><td>" + OrderPostRequest.Order.PriceTotal + "</td></tr><tr><td></td><td></td><td></td><td></td><td style='text-align:right;'>Varav Moms:</td><td>" + OrderPostRequest.Order.VatTotal + "</td></tr><tr><td></td><td></td><td style='text-align:right;'>Rabattkod:</td><td>"+OrderPostRequest.Order.DiscountCode+"</td><td style='text-align:right;'>Total Rabatt:</td><td>" + OrderPostRequest.Order.DiscountTotal + "</td></tr><tr><td></td><td></td><td></td><td></td><td style='text-align:right;' >Summa efter rabatt:</td><td>" + (OrderPostRequest.Order.PriceTotal - OrderPostRequest.Order.DiscountTotal) + "</td></tr></tbody></table><p>Observera att detta mail också gäller som kvitto på din beställning</p><ul><li>Beställare: " + OrderPostRequest.Order.CustomerFirstName + " " + OrderPostRequest.Order.CustomerLastName + "</li><li>Telefonnummer: " + OrderPostRequest.Order.CustomerPhone + "</li><li>E-mail: " + OrderPostRequest.Order.CustomerMail + "</li><li>Kvittonummer: " + OrderPostRequest.Order.ReceiptNumber + "</li><li>Ordernummer: " + OrderPostRequest.Order.OrderNumber + "</li></ul><ul><li>Bashpodden</li><li>Gatan 3, 137 19, Långtbortistan</li><li>Bankgiro: 9845-789</li><li>" + OrderPostRequest.Order.Timestamp + "</li></ul><h2>Hälsningar Bashpodden</h2>";
+            msg.Body = "<h1>Hej " + OrderPostRequest.Order.CustomerFirstName + " " + OrderPostRequest.Order.CustomerLastName + "!</h1><br><p>Här kommer en bekräftelse på din beställning med kvittonummer:" + OrderPostRequest.Order.ReceiptNumber + "</p><table style='width:100%; text-align:left;'><thead><tr><th>Antal</th><th>Produkt</th><th>Artikel Nummer</th><th>Färg</th><th>Storlek</th><th>Pris</th></tr></thead><tbody>" + mailProducts + "<tr><td></td><td></td><td></td><td></td><td style='text-align:right;' >Summa:</td><td>" + OrderPostRequest.Order.PriceTotal + "</td></tr><tr><td></td><td></td><td></td><td></td><td style='text-align:right;'>Varav Moms:</td><td>" + OrderPostRequest.Order.VatTotal + "</td></tr><tr><td></td><td></td><td style='text-align:right;'>Rabattkod:</td><td>" + OrderPostRequest.Order.DiscountCode + "</td><td style='text-align:right;'>Total Rabatt:</td><td>" + OrderPostRequest.Order.DiscountTotal + "</td></tr><tr><td></td><td></td><td></td><td></td><td style='text-align:right;' >Summa efter rabatt:</td><td>" + (OrderPostRequest.Order.PriceTotal - OrderPostRequest.Order.DiscountTotal) + "</td></tr></tbody></table><p>Observera att detta mail också gäller som kvitto på din beställning</p><ul><li>Beställare: " + OrderPostRequest.Order.CustomerFirstName + " " + OrderPostRequest.Order.CustomerLastName + "</li><li>Telefonnummer: " + OrderPostRequest.Order.CustomerPhone + "</li><li>E-mail: " + OrderPostRequest.Order.CustomerMail + "</li><li>Kvittonummer: " + OrderPostRequest.Order.ReceiptNumber + "</li><li>Ordernummer: " + OrderPostRequest.Order.OrderNumber + "</li></ul><ul><li>Bashpodden</li><li>Gatan 3, 137 19, Långtbortistan</li><li>Bankgiro: 9845-789</li><li>" + OrderPostRequest.Order.Timestamp + "</li></ul><h2>Hälsningar Bashpodden</h2>";
+            //Allow html and css design in mail
             msg.IsBodyHtml = true;
             //msg.Priority = MailPriority.High;
 
-
+            // Set client settings
             using (SmtpClient client = new SmtpClient())
             {
                 client.EnableSsl = true;
@@ -160,7 +166,6 @@ namespace backend.Controllers
                 client.Host = "smtp.gmail.com";
                 client.Port = 587;
                 client.DeliveryMethod = SmtpDeliveryMethod.Network;
-
                 client.Send(msg);
             }
 

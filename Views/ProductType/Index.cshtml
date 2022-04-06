@@ -21,16 +21,17 @@
         <thead>
             <tr>
                 <th>
-                    @Html.DisplayNameFor(model => model.Amount)
+                    @Html.ActionLink("Amount", "Index", new { sortOrder = ViewBag.AmountSortParm })
                 </th>
                 <th>
-                    @Html.DisplayNameFor(model => model.Product)
+                    @Html.ActionLink("Product", "Index", new { sortOrder = ViewBag.NameSortParm })
                 </th>
                 <th>
-                    @Html.DisplayNameFor(model => model.ProductColor)
+                    @Html.ActionLink("Color", "Index", new { sortOrder = ViewBag.ColorSortParm })
                 </th>
                 <th>
-                    @Html.DisplayNameFor(model => model.ProductSize)
+                    @Html.ActionLink("Size", "Index", new { sortOrder = ViewBag.SizeSortParm })
+                    
                 </th>
                 <th></th>
             </tr>
