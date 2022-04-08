@@ -18,6 +18,14 @@
         <a asp-action="Create">Add New Product</a><br />
         <a asp-controller="ProductImages" asp-action="Index">Add Product Images</a>
     </p>
+    @using (Html.BeginForm())
+    {
+        <p>
+            Search: @Html.TextBox("SearchString")
+            <input type="submit" value="Search" />
+        </p>
+    }
+    <p><b>Antal objekt: </b>@ViewBag.count</p>
     <table class="table">
         <thead>
             <tr>

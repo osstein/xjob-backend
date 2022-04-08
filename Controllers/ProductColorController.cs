@@ -23,6 +23,7 @@ namespace backend.Controllers
         // GET: ProductColor
         public async Task<IActionResult> Index()
         {
+            ViewData["count"] = _context.ProductColor.Count();
             return View(await _context.ProductColor.OrderBy(s => s.Color).ToListAsync());
         }
 

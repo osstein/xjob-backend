@@ -27,11 +27,11 @@ namespace backend.Controllers
             {
                 ViewData["Sizes"] = await _context.ProductSize.ToListAsync();
                 ViewData["Colors"] = await _context.ProductColor.ToListAsync();
-                var catalogDBContext =  _context.ProductType.Include(p => p.Product).Where(s => s.ProductId == Convert.ToInt32(Id));
+                var catalogDBContext = _context.ProductType.Include(p => p.Product).Where(s => s.ProductId == Convert.ToInt32(Id));
 
                 ViewBag.NameSortParm = String.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
                 ViewBag.DateSortParm = sortOrder == "Date" ? "date_desc" : "Date";
-
+                ViewData["count"] = catalogDBContext.Count();
                 switch (sortOrder)
                 {
                     case "name_desc":
@@ -80,7 +80,7 @@ namespace backend.Controllers
                     case "color_desc":
                         catalogDBContext = catalogDBContext.OrderByDescending(s => s.ProductColorId);
                         break;
-                        case "Size":
+                    case "Size":
                         catalogDBContext = catalogDBContext.OrderBy(s => s.ProductSizeId);
                         break;
                     case "size_desc":

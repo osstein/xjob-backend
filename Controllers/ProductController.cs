@@ -21,7 +21,7 @@ namespace backend.Controllers
         }
 
         // GET: Product
-        public async Task<IActionResult> Index(string sortOrder)
+        public async Task<IActionResult> Index(string sortOrder, string searchString)
         {
             var sub = from CatalogSubCategories in _context.CatalogSubCategories select CatalogSubCategories;
             var main = from CatalogCategories in _context.CatalogCategories select CatalogCategories;
@@ -47,7 +47,11 @@ namespace backend.Controllers
             ViewBag.DateSortParm = sortOrder == "Date" ? "date_desc" : "Date";
             ViewBag.PNRSortParm = sortOrder == "productnr" ? "productnr_desc" : "productnr";
             ViewBag.PriceSortParm = sortOrder == "price" ? "price_desc" : "price";
-
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                catalogDBContext = catalogDBContext.Where(s => s.ProductNumber.ToLower().Contains(searchString.ToLower()) || s.Name.ToLower().Contains(searchString.ToLower()));
+            }
+            ViewData["count"] = catalogDBContext.Count();
             switch (sortOrder)
             {
                 case "name_desc":

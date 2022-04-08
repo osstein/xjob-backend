@@ -23,6 +23,7 @@ namespace backend.Controllers
         // GET: CatalogCategories
         public async Task<IActionResult> Index()
         {
+            ViewData["count"] = _context.CatalogCategories.Count();
             return View(await _context.CatalogCategories.OrderBy(s => s.Category).ToListAsync());
         }
 

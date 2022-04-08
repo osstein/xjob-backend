@@ -28,11 +28,13 @@ namespace backend.Controllers
             if (Id != null)
             {
                 var catalogDBContext = _context.ProductImages.Include(p => p.Product).Where(s => s.ProductId == Convert.ToInt32(Id));
+                ViewData["count"] = catalogDBContext.Count();
                 return View(await catalogDBContext.ToListAsync());
             }
             else
             {
                 var catalogDBContext = _context.ProductImages.Include(p => p.Product);
+                ViewData["count"] = catalogDBContext.Count();
                 return View(await catalogDBContext.ToListAsync());
             }
         }

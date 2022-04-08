@@ -29,6 +29,13 @@ namespace backend.Controllers
             ViewBag.DateSortParm = sortOrder == "Date" ? "date_desc" : "Date";
             var NewsList = from News in _context.News
                            select News;
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                NewsList = NewsList.Where(s => s.Title.ToLower().Contains(searchString.ToLower()) ||  s.Content.ToLower().Contains(searchString.ToLower()) );
+            }
+
+
+            ViewData["count"] = NewsList.Count();
             switch (sortOrder)
             {
                 case "name_desc":

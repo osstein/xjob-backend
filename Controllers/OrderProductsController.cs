@@ -28,6 +28,7 @@ namespace backend.Controllers
             {
                 catalogDBContext = from OrderProducts in _context.OrderProducts.Include(o => o.Order).Where(o => o.OrderId == Convert.ToInt32(Id)) select OrderProducts;
             }
+            ViewData["count"] = catalogDBContext.Count();
             return View(await catalogDBContext.ToListAsync());
         }
 

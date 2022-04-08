@@ -21,7 +21,7 @@ namespace backend.Controllers
         }
 
         // GET: DiscountCodes
-        public async Task<IActionResult> Index(string sortOrder)
+        public async Task<IActionResult> Index(string sortOrder, string searchString)
         {
 
 
@@ -31,6 +31,12 @@ namespace backend.Controllers
             ViewBag.TimestampSortParm = sortOrder == "timestamp" ? "timestamp_desc" : "timestamp";
             var Objects = from discountCodes in _context.DiscountCodes
                           select discountCodes;
+
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                Objects = Objects.Where(s => s.Code.ToLower().Contains(searchString.ToLower()));
+            }
+            ViewData["count"] = Objects.Count();
             switch (sortOrder)
             {
 

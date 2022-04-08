@@ -21,7 +21,7 @@ namespace backend.Controllers
         }
 
         // GET: Order
-        public async Task<IActionResult> Index(string sortOrder)
+        public async Task<IActionResult> Index(string sortOrder, string searchString)
         {
             ViewBag.IdSortParm = String.IsNullOrEmpty(sortOrder) ? "Id_desc" : "";
             ViewBag.DateSortParm = sortOrder == "Date" ? "date_desc" : "Date";
@@ -32,6 +32,11 @@ namespace backend.Controllers
             ViewBag.STATUSSortParm = sortOrder == "status" ? "status_desc" : "status";
             var objects = from order in _context.Order
                           select order;
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                objects = objects.Where(s => s.CustomerMail.ToLower().Contains(searchString.ToLower()) || s.OrderNumber.ToLower().Contains(searchString.ToLower()) || s.ReceiptNumber.ToLower().Contains(searchString.ToLower()) || s.CustomerFirstName.ToLower().Contains(searchString.ToLower()) || s.CustomerLastName.ToLower().Contains(searchString.ToLower()) || s.CustomerPhone.ToLower().Contains(searchString.ToLower()) || s.Status.ToLower().Contains(searchString.ToLower()) || s.PaymentMethod.ToLower().Contains(searchString.ToLower()));
+            }
+            ViewData["count"] = objects.Count();
             switch (sortOrder)
             {
                 case "Id_desc":
@@ -61,14 +66,14 @@ namespace backend.Controllers
                 case "mail_desc":
                     objects = objects.OrderByDescending(s => s.CustomerMail);
                     break;
-            
+
                 case "payment":
                     objects = objects.OrderBy(s => s.PaymentMethod);
                     break;
                 case "payment_desc":
                     objects = objects.OrderByDescending(s => s.PaymentMethod);
                     break;
-                     case "status":
+                case "status":
                     objects = objects.OrderBy(s => s.Status);
                     break;
                 case "status_desc":

@@ -24,6 +24,7 @@ namespace backend.Controllers
         public async Task<IActionResult> Index()
         {
             var catalogDBContext = _context.CatalogSubCategories.Include(c => c.CatalogCategories);
+            ViewData["count"] = catalogDBContext.Count();
             return View(await catalogDBContext.OrderBy(s => s.Category).ToListAsync());
         }
 

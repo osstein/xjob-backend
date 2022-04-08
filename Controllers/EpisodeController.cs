@@ -24,6 +24,7 @@ private readonly IWebHostEnvironment _hostEnvironment;
         // GET: Episode
         public async Task<IActionResult> Index()
         {
+            ViewData["count"] = _context.Episode.Count();
             return View(await _context.Episode.ToListAsync());
         }
 
