@@ -26,8 +26,12 @@ namespace backend.Controllers
         [Authorize]
         public async Task<IActionResult> Index()
         {
-            ViewData["count"] = _context.Episode.Count();
-            return View(await _context.Episode.ToListAsync());
+            var EpisodeList = from episode in _context.Episode.OrderBy(c => c.S).ThenBy(c => c.E)
+                              select episode;
+            
+
+            ViewData["count"] = EpisodeList.Count();
+            return View(await EpisodeList.ToListAsync());
         }
 
         // GET: Episode/Details/5
