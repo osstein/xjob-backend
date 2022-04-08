@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using backend.Data;
 using backend.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace backend.Controllers
 {
@@ -21,7 +22,7 @@ namespace backend.Controllers
         }
 
         // GET: DiscountCodes
-        public async Task<IActionResult> Index(string sortOrder, string searchString)
+      [Authorize]  public async Task<IActionResult> Index(string sortOrder, string searchString)
         {
 
 
@@ -73,7 +74,7 @@ namespace backend.Controllers
         }
 
         // GET: DiscountCodes/Details/5
-        public async Task<IActionResult> Details(int? id)
+       [Authorize] public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
             {
@@ -91,7 +92,7 @@ namespace backend.Controllers
         }
 
         // GET: DiscountCodes/Create
-        public IActionResult Create()
+       [Authorize] public IActionResult Create()
         {
             return View();
         }
@@ -101,7 +102,7 @@ namespace backend.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Code,Discount,CampaignStart,CampaignEnd,Timestamp")] DiscountCodes discountCodes)
+       [Authorize] public async Task<IActionResult> Create([Bind("Id,Code,Discount,CampaignStart,CampaignEnd,Timestamp")] DiscountCodes discountCodes)
         {
             if (ModelState.IsValid)
             {
@@ -113,7 +114,7 @@ namespace backend.Controllers
         }
 
         // GET: DiscountCodes/Edit/5
-        public async Task<IActionResult> Edit(int? id)
+      [Authorize]  public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
             {
@@ -133,7 +134,7 @@ namespace backend.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Code,Discount,CampaignStart,CampaignEnd,Timestamp")] DiscountCodes discountCodes)
+       [Authorize] public async Task<IActionResult> Edit(int id, [Bind("Id,Code,Discount,CampaignStart,CampaignEnd,Timestamp")] DiscountCodes discountCodes)
         {
             if (id != discountCodes.Id)
             {
@@ -164,7 +165,7 @@ namespace backend.Controllers
         }
 
         // GET: DiscountCodes/Delete/5
-        public async Task<IActionResult> Delete(int? id)
+       [Authorize] public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
             {
@@ -184,7 +185,7 @@ namespace backend.Controllers
         // POST: DiscountCodes/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(int id)
+       [Authorize] public async Task<IActionResult> DeleteConfirmed(int id)
         {
             var discountCodes = await _context.DiscountCodes.FindAsync(id);
             _context.DiscountCodes.Remove(discountCodes);

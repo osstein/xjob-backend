@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using backend.Data;
 using backend.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace backend.Controllers
 {
@@ -23,6 +24,7 @@ namespace backend.Controllers
         }
 
         // GET: News
+        [Authorize]
         public async Task<IActionResult> Index(string sortOrder, string searchString)
         {
             ViewBag.NameSortParm = String.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
@@ -31,7 +33,7 @@ namespace backend.Controllers
                            select News;
             if (!String.IsNullOrEmpty(searchString))
             {
-                NewsList = NewsList.Where(s => s.Title.ToLower().Contains(searchString.ToLower()) ||  s.Content.ToLower().Contains(searchString.ToLower()) );
+                NewsList = NewsList.Where(s => s.Title.ToLower().Contains(searchString.ToLower()) || s.Content.ToLower().Contains(searchString.ToLower()));
             }
 
 
@@ -55,6 +57,7 @@ namespace backend.Controllers
         }
 
         // GET: News/Details/5
+        [Authorize]
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
@@ -73,6 +76,7 @@ namespace backend.Controllers
         }
 
         // GET: News/Create
+        [Authorize]
         public IActionResult Create()
         {
             return View();
@@ -83,6 +87,7 @@ namespace backend.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize]
         public async Task<IActionResult> Create([Bind("Id,Title,Content,ImagePath,ImageFile,ImageAlt,Timestamp")] News news)
         {
             if (ModelState.IsValid)
@@ -112,6 +117,7 @@ namespace backend.Controllers
         }
 
         // GET: News/Edit/5
+        [Authorize]
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -132,6 +138,7 @@ namespace backend.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize]
         public async Task<IActionResult> Edit(int id, [Bind("Id,Title,Content,ImagePath,ImageFile,ImageAlt,Timestamp")] News news)
         {
             if (id != news.Id)
@@ -179,6 +186,7 @@ namespace backend.Controllers
         }
 
         // GET: News/Delete/5
+        [Authorize]
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -199,6 +207,7 @@ namespace backend.Controllers
         // POST: News/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
+        [Authorize]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
             var news = await _context.News.FindAsync(id);

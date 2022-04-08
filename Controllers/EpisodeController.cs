@@ -8,13 +8,14 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using backend.Data;
 using backend.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace backend.Controllers
 {
     public class EpisodeController : Controller
     {
         private readonly CatalogDBContext _context;
-private readonly IWebHostEnvironment _hostEnvironment;
+        private readonly IWebHostEnvironment _hostEnvironment;
         public EpisodeController(CatalogDBContext context, IWebHostEnvironment hostEnvironment)
         {
             _context = context;
@@ -22,6 +23,7 @@ private readonly IWebHostEnvironment _hostEnvironment;
         }
 
         // GET: Episode
+        [Authorize]
         public async Task<IActionResult> Index()
         {
             ViewData["count"] = _context.Episode.Count();
@@ -29,6 +31,7 @@ private readonly IWebHostEnvironment _hostEnvironment;
         }
 
         // GET: Episode/Details/5
+        [Authorize]
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
@@ -47,6 +50,7 @@ private readonly IWebHostEnvironment _hostEnvironment;
         }
 
         // GET: Episode/Create
+        [Authorize]
         public IActionResult Create()
         {
             return View();
@@ -58,6 +62,7 @@ private readonly IWebHostEnvironment _hostEnvironment;
         [HttpPost]
         [DisableRequestSizeLimit]
         [ValidateAntiForgeryToken]
+        [Authorize]
         public async Task<IActionResult> Create([Bind("Id,Title,Description,S,E,File,FilePath,Timestamp")] Episode episode)
         {
             if (ModelState.IsValid)
@@ -85,6 +90,7 @@ private readonly IWebHostEnvironment _hostEnvironment;
         }
 
         // GET: Episode/Edit/5
+        [Authorize]
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -105,6 +111,7 @@ private readonly IWebHostEnvironment _hostEnvironment;
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize]
         public async Task<IActionResult> Edit(int id, [Bind("Id,Title,Description,S,E,FilePath,Timestamp")] Episode episode)
         {
             if (id != episode.Id)
@@ -136,6 +143,7 @@ private readonly IWebHostEnvironment _hostEnvironment;
         }
 
         // GET: Episode/Delete/5
+        [Authorize]
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -156,6 +164,7 @@ private readonly IWebHostEnvironment _hostEnvironment;
         // POST: Episode/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
+        [Authorize]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
             var episode = await _context.Episode.FindAsync(id);

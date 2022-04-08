@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using backend.Data;
 using backend.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace backend.Controllers
 {
@@ -21,6 +22,7 @@ namespace backend.Controllers
         }
 
         // GET: ProductSize
+        [Authorize]
         public async Task<IActionResult> Index()
         {
             ViewData["count"] = _context.ProductSize.Count();
@@ -28,6 +30,7 @@ namespace backend.Controllers
         }
 
         // GET: ProductSize/Details/5
+        [Authorize]
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
@@ -56,6 +59,7 @@ namespace backend.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize]
         public async Task<IActionResult> Create([Bind("Id,Size")] ProductSize productSize)
         {
             if (ModelState.IsValid)
@@ -68,6 +72,7 @@ namespace backend.Controllers
         }
 
         // GET: ProductSize/Edit/5
+        [Authorize]
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -88,6 +93,7 @@ namespace backend.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize]
         public async Task<IActionResult> Edit(int id, [Bind("Id,Size")] ProductSize productSize)
         {
             if (id != productSize.Id)
@@ -119,6 +125,7 @@ namespace backend.Controllers
         }
 
         // GET: ProductSize/Delete/5
+        [Authorize]
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -139,6 +146,7 @@ namespace backend.Controllers
         // POST: ProductSize/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
+        [Authorize]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
             var productSize = await _context.ProductSize.FindAsync(id);

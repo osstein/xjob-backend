@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using backend.Data;
 using backend.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace backend.Controllers
 {
@@ -21,6 +22,7 @@ namespace backend.Controllers
         }
 
         // GET: Product
+        [Authorize]
         public async Task<IActionResult> Index(string sortOrder, string searchString)
         {
             var sub = from CatalogSubCategories in _context.CatalogSubCategories select CatalogSubCategories;
@@ -86,6 +88,7 @@ namespace backend.Controllers
         }
 
         // GET: Product/Details/5
+        [Authorize]
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
@@ -119,6 +122,7 @@ namespace backend.Controllers
         }
 
         // GET: Product/Create
+        [Authorize]
         public IActionResult Create()
         {
 
@@ -146,6 +150,7 @@ namespace backend.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize]
         public async Task<IActionResult> Create([Bind("Id,Name,Price,Vat,Discount,Description,ProductNumber,CatalogSubCategoriesId,Timestamp")] Product product)
         {
             if (ModelState.IsValid)
@@ -167,6 +172,7 @@ namespace backend.Controllers
         }
 
         // GET: Product/Edit/5
+        [Authorize]
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -202,6 +208,7 @@ namespace backend.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize]
         public async Task<IActionResult> Edit(int id, [Bind("Id,Name,Price,Vat,Discount,Description,ProductNumber,CatalogSubCategoriesId,Timestamp")] Product product)
         {
             if (id != product.Id)
@@ -242,6 +249,7 @@ namespace backend.Controllers
         }
 
         // GET: Product/Delete/5
+        [Authorize]
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -277,6 +285,7 @@ namespace backend.Controllers
         // POST: Product/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
+        [Authorize]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
             var product = await _context.Product.FindAsync(id);

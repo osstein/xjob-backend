@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using backend.Data;
 using backend.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace backend.Controllers
 {
@@ -21,7 +22,7 @@ namespace backend.Controllers
         }
 
         // GET: OrderProducts
-        public async Task<IActionResult> Index(string Id)
+       [Authorize] public async Task<IActionResult> Index(string Id)
         {
             var catalogDBContext = from OrderProducts in _context.OrderProducts.Include(o => o.Order).Where(o => o.OrderId != null) select OrderProducts;
             if (Id != null)
@@ -33,7 +34,7 @@ namespace backend.Controllers
         }
 
         // GET: OrderProducts/Details/5
-        public async Task<IActionResult> Details(int? id)
+      [Authorize]  public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
             {
@@ -52,7 +53,7 @@ namespace backend.Controllers
         }
 
         // GET: OrderProducts/Create
-        public IActionResult Create(int id, string color, string size, string productName, string productNumber, int productId)
+      [Authorize]  public IActionResult Create(int id, string color, string size, string productName, string productNumber, int productId)
         {
             ViewData["TypeId"] = id;
             ViewData["Color"] = color;
@@ -69,7 +70,7 @@ namespace backend.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,ProductId,Price,Amount,ProductSize,ProductColor,ProductNumber,OrderId")] OrderProducts orderProducts)
+     [Authorize]   public async Task<IActionResult> Create([Bind("Id,ProductId,Price,Amount,ProductSize,ProductColor,ProductNumber,OrderId")] OrderProducts orderProducts)
         {
             if (ModelState.IsValid)
             {
@@ -176,7 +177,7 @@ namespace backend.Controllers
         } */
 
         // GET: OrderProducts/Delete/5
-        public async Task<IActionResult> Delete(int? id)
+      [Authorize]  public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
             {
@@ -197,7 +198,7 @@ namespace backend.Controllers
         // POST: OrderProducts/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(int id)
+      [Authorize]  public async Task<IActionResult> DeleteConfirmed(int id)
         {
             var orderProducts = await _context.OrderProducts.FindAsync(id);
             _context.OrderProducts.Remove(orderProducts);

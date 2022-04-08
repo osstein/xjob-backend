@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using backend.Data;
 using backend.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace backend.Controllers
 {
@@ -21,6 +22,7 @@ namespace backend.Controllers
         }
 
         // GET: CatalogCategories
+        [Authorize]
         public async Task<IActionResult> Index()
         {
             ViewData["count"] = _context.CatalogCategories.Count();
@@ -28,6 +30,7 @@ namespace backend.Controllers
         }
 
         // GET: CatalogCategories/Details/5
+        [Authorize]
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
@@ -46,6 +49,7 @@ namespace backend.Controllers
         }
 
         // GET: CatalogCategories/Create
+        [Authorize]
         public IActionResult Create()
         {
             return View();
@@ -56,6 +60,7 @@ namespace backend.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize]
         public async Task<IActionResult> Create([Bind("Id,Category")] CatalogCategories catalogCategories)
         {
             if (ModelState.IsValid)
@@ -68,6 +73,7 @@ namespace backend.Controllers
         }
 
         // GET: CatalogCategories/Edit/5
+        [Authorize]
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -88,6 +94,7 @@ namespace backend.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize]
         public async Task<IActionResult> Edit(int id, [Bind("Id,Category")] CatalogCategories catalogCategories)
         {
             if (id != catalogCategories.Id)
@@ -119,6 +126,7 @@ namespace backend.Controllers
         }
 
         // GET: CatalogCategories/Delete/5
+        [Authorize]
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -139,6 +147,7 @@ namespace backend.Controllers
         // POST: CatalogCategories/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
+        [Authorize]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
             var catalogCategories = await _context.CatalogCategories.FindAsync(id);

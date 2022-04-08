@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using backend.Data;
 using backend.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace backend.Controllers
 {
@@ -21,6 +22,7 @@ namespace backend.Controllers
         }
 
         // GET: Order
+        [Authorize]
         public async Task<IActionResult> Index(string sortOrder, string searchString)
         {
             ViewBag.IdSortParm = String.IsNullOrEmpty(sortOrder) ? "Id_desc" : "";
@@ -87,6 +89,7 @@ namespace backend.Controllers
         }
 
         // GET: Order/Details/5
+        [Authorize]
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
@@ -105,6 +108,7 @@ namespace backend.Controllers
         }
 
         // GET: Order/Create
+        [Authorize]
         public IActionResult Create()
         {
             return View();
@@ -115,6 +119,7 @@ namespace backend.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize]
         public async Task<IActionResult> Create([Bind("Id,CustomerFirstName,CustomerLastName,CustomerMail,CustomerPhone,CustomerAdress,CustomerZip,CustomerCity,PriceTotal,VatTotal,DiscountTotal,DiscountCode,OrderNumber,ReceiptNumber,PaymentMethod,Timestamp,Status")] Order order)
         {
             if (ModelState.IsValid)
@@ -132,6 +137,7 @@ namespace backend.Controllers
         }
 
         // GET: Order/Edit/5
+        [Authorize]
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -152,6 +158,7 @@ namespace backend.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize]
         public async Task<IActionResult> Edit(int id, [Bind("Id,CustomerFirstName,CustomerLastName,CustomerMail,CustomerPhone,CustomerAdress,CustomerZip,CustomerCity,PriceTotal,VatTotal,DiscountTotal,DiscountCode,OrderNumber,ReceiptNumber,PaymentMethod,Timestamp,Status")] Order order)
         {
             if (id != order.Id)
@@ -183,6 +190,7 @@ namespace backend.Controllers
         }
 
         // GET: Order/Delete/5
+        [Authorize]
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -203,6 +211,7 @@ namespace backend.Controllers
         // POST: Order/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
+        [Authorize]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
             var orderProducts = from OrderProducts in _context.OrderProducts select OrderProducts; ;
