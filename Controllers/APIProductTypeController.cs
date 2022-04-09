@@ -26,7 +26,9 @@ namespace backend.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<ProductType>>> GetProductType()
         {
-            return await _context.ProductType.ToListAsync();
+             var ProductType = await _context.ProductType.Where(x => x.Amount != 0).ToListAsync();
+
+            return ProductType;
         }
 
         // GET: api/APIProductType/5
@@ -43,7 +45,7 @@ namespace backend.Controllers
             return productType;
         }
 
-       
+
         private bool ProductTypeExists(int id)
         {
             return _context.ProductType.Any(e => e.Id == id);
