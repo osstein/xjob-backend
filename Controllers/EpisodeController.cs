@@ -26,10 +26,8 @@ namespace backend.Controllers
         [Authorize]
         public async Task<IActionResult> Index()
         {
-            var EpisodeList = from episode in _context.Episode.OrderBy(c => c.S).ThenBy(c => c.E)
+            var EpisodeList = from episode in _context.Episode.OrderByDescending(c => c.S).ThenByDescending(c => c.E)
                               select episode;
-            
-
             ViewData["count"] = EpisodeList.Count();
             return View(await EpisodeList.ToListAsync());
         }
