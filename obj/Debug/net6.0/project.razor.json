@@ -16648,6 +16648,11 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "c:\\xampp\\htdocs\\xjobb\\backend\\Views\\Shared\\_adminNavPartial.cshtml",
+      "TargetPath": "Views\\Shared\\_adminNavPartial.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "c:\\xampp\\htdocs\\xjobb\\backend\\Areas\\Identity\\Pages\\_ViewImports.cshtml",
       "TargetPath": "Areas\\Identity\\Pages\\_ViewImports.cshtml",
       "FileKind": "mvc"

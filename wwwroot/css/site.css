@@ -16,3 +16,93 @@ html {
 body {
   margin-bottom: 60px;
 }
+main {
+  padding-left: 60px;
+  overflow-x: auto;
+  max-width: 100%;
+}
+.side-menu {
+  position: fixed;
+  left: 0px;
+  transform: translateX(-185px);
+  top: 150px;
+  width: 250px;
+  border-radius: 0rem 1rem 1rem 0rem;
+  padding: 1.5rem;
+  border-top: 3px solid #333;
+  border-right: 3px solid #333;
+  border-bottom: 3px solid #333;
+  transition: 0.3s ease-in-out all;
+  cursor: pointer;
+  background-color: #fff;
+  max-height: 80vh;
+  overflow: auto;
+}
+@media (max-width: 800px) {
+  .side-menu {
+    top: initial;
+    bottom: 65px;
+    height: 200px;
+    overflow: hidden;
+  }
+}
+
+.side-menu nav ul {
+  line-height: 1.25rem;
+  list-style-type: none;
+  font-size: 1rem;
+  padding: 0px;
+  max-width: calc(100% - 45px);
+  list-style: none;
+}
+
+.side-menu-h3 {
+  font-size: 20px;
+}
+
+.side-menu nav a:hover {
+  text-decoration: underline;
+}
+
+.side-menu .toggle-button {
+  height: 30px;
+  width: 30px;
+  padding: 5px;
+  position: absolute;
+  right: 1.1rem;
+  top: 1.5rem;
+  border: solid 1px #333;
+  border-radius: 50%;
+  text-align: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  line-height: 16px;
+  pointer-events: none;
+  transition: all ease-in-out 0.3s;
+}
+
+.side-menu.open-side-menu .toggle-button {
+  transform: rotate(180deg);
+}
+
+.side-menu.open-side-menu {
+  transition: 0.3s ease-in-out all;
+  transform: translateX(0px);
+  height: initial;
+  overflow-y: auto;
+}
+
+.menu-title {
+  position: absolute;
+  transform: rotate(90deg);
+  top: 120px;
+  right: -12px;
+  display: block;
+  font-size: 2rem;
+}
+
+.side-menu nav ul li a {
+  padding: 0px;
+}

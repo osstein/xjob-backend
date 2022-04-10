@@ -27,63 +27,29 @@
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
                         </li>
-                         <li class="nav-item">
+                        <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home"
                                 asp-action="Report">Report</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home"
-                                asp-action="Privacy">Privacy</a>
-                        </li>
-                        @if (SignInManager.IsSignedIn(User))
-                        {
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Order"
-                                asp-action="Index">Order</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Product"
-                                asp-action="Index">Produkter</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="ProductType"
-                                asp-action="Index">Produkt
-                                Varianter</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="DiscountCodes"
-                                asp-action="Index">Rabatter</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="News" asp-action="Index">News</a>
+                                asp-action="Privacy">Dataskydd</a>
                         </li>
 
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="CatalogCategories"
-                                asp-action="Index">Kategorier</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="CatalogSubCategories"
-                                asp-action="Index">Underkategorier</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="ProductColor"
-                                asp-action="Index">Färger</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="ProductSize"
-                                asp-action="Index">Storlekar</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Episode"
-                                asp-action="Index">Avsnitt</a>
-                        </li>
-                        }
                     </ul>
                     <partial name="_LoginPartial" />
+
                 </div>
             </div>
         </nav>
+        <aside class="side-menu" id="side-menu">
+            <span class="toggle-button" id="toggle-button">&#10140;</span>
+            <h2 class="menu-title" id="menu-title">Meny</h2>
+            <nav>
+                <partial name="_adminNavPartial" />
+            </nav>
+        </aside>
+
     </header>
     <div class="container">
         <main role="main" class="pb-3">

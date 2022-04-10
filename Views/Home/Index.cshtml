@@ -1,20 +1,30 @@
-﻿@{
+﻿@using Microsoft.AspNetCore.Identity
+@inject SignInManager<IdentityUser> SignInManager
+@inject UserManager<IdentityUser> UserManager
+@{
     ViewData["Title"] = "Home Page";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <h2>Katalog</h2>
-    
-    <h2>Ordrar</h2>
-    <ul class="navbar-nav flex-grow-1">
-        <li class="nav-item">
-            <a class="nav-link text-dark" asp-area="" asp-controller="Order" asp-action="Index">Order</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link text-dark" asp-area="" asp-controller="OrderProducts" asp-action="Index">Order
-                Produkter</a>
-        </li>
-    </ul>
-    
+<div>
+    <h1 class="display-4">Meny</h1>
+
+
+    @if (SignInManager.IsSignedIn(User))
+
+    {
+        <h2>Administration av Bashpoddens webbplats</h2>
+        <nav class="admin-menu">
+            <partial name="_adminNavPartial" />
+        </nav>
+
+
+
+
+
+
+
+
+
+
+    }
 </div>
