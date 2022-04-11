@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "ty5UQ5q+LC+6x1rccGUs8pM/LDILD+fGi/pFxQqz6bU=",
+  "Hash": "knb41Q/MwnahCLqnGO8iX/sA9qXfnlBZqFs9iHN7j0o=",
   "Source": "backend",
   "BasePath": "_content/backend",
   "Mode": "Default",
@@ -1666,6 +1666,23 @@
       "OriginalItemSpec": "wwwroot\\images\\pexels-anna-shvets-45879552022032844017.jpg"
     },
     {
+      "Identity": "C:\\xampp\\htdocs\\xjobb\\backend\\wwwroot\\images\\pexels-cottonbro-40662962022041101963.jpg",
+      "SourceId": "backend",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\xampp\\htdocs\\xjobb\\backend\\wwwroot\\",
+      "BasePath": "_content/backend",
+      "RelativePath": "images/pexels-cottonbro-40662962022041101963.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\pexels-cottonbro-40662962022041101963.jpg"
+    },
+    {
       "Identity": "C:\\xampp\\htdocs\\xjobb\\backend\\wwwroot\\images\\pexels-ion-ceban-ionelceban-3796761 (1)2022032516175.jpg",
       "SourceId": "backend",
       "SourceType": "Discovered",
@@ -1834,6 +1851,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\images\\pexels-ox-street-65409802022032826243.jpg"
+    },
+    {
+      "Identity": "C:\\xampp\\htdocs\\xjobb\\backend\\wwwroot\\images\\pexels-prayoon-sajeev-28975212022041151218.jpg",
+      "SourceId": "backend",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\xampp\\htdocs\\xjobb\\backend\\wwwroot\\",
+      "BasePath": "_content/backend",
+      "RelativePath": "images/pexels-prayoon-sajeev-28975212022041151218.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\pexels-prayoon-sajeev-28975212022041151218.jpg"
     },
     {
       "Identity": "C:\\xampp\\htdocs\\xjobb\\backend\\wwwroot\\images\\pexels-rodnae-productions-61825512022032542188.jpg",

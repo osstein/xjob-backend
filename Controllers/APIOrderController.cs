@@ -61,9 +61,12 @@ namespace backend.Controllers
             decimal PriceTotal = 0;
             decimal VatTotal = 0;
             decimal DiscountTotal = 0;
+            // Variable for mail construction
+            var mailProducts = "";
             //Now variable
             DateTime dateNow = DateTime.Now;
-            //Check discount available
+            //Check discount available 
+            
             foreach (var item in discountData)
             {
                 if (item.Code == OrderPostRequest.Order.DiscountCode && item.CampaignStart < dateNow && item.CampaignEnd > dateNow)
@@ -77,8 +80,7 @@ namespace backend.Controllers
             OrderPostRequest.Order.ReceiptNumber = "RN-" + new Random().Next(11) + "-" + DateTime.Now.ToString("yyyyMMddssfff");
             _context.Order.Add(OrderPostRequest.Order);
             await _context.SaveChangesAsync();
-            // Variable for mail construction
-            var mailProducts = "";
+           
 
             // Add items with id for order
             foreach (var item in OrderPostRequest.OrderProducts)

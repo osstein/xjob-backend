@@ -16,12 +16,12 @@ sideMenu.addEventListener("click", () => {
 const toggleSideMenu = () => {
   sideMenu.classList.toggle("open-side-menu");
   if (sideMenu.classList.contains("open-side-menu")) {
-    toggleButton.style.backgroundColor = "#ff000030";
+    toggleButton.style.backgroundColor = "#000000";
   } else {
-    toggleButton.style.backgroundColor = "#00ff0030";
+    toggleButton.style.backgroundColor = "#FFEA00";
   }
 };
 
 window.onload = () => {
-  toggleButton.style.backgroundColor = "#00ff0030";
+  toggleButton.style.backgroundColor = "#FFEA00";
 };
