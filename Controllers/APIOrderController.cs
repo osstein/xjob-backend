@@ -25,8 +25,8 @@ namespace backend.Controllers
         }
 
         // GET: api/APIOrder
-        [HttpGet]
-        public async Task<ActionResult<IEnumerable<Order>>> GetOrder()
+       /* [HttpGet]
+         public async Task<ActionResult<IEnumerable<Order>>> GetOrder()
         {
             return await _context.Order.Include(p => p.OrderProducts).ToListAsync();
         }
@@ -43,7 +43,7 @@ namespace backend.Controllers
             }
 
             return order;
-        }
+        } */
 
 
         // POST: api/APIOrder (OrderPostRequest? ?)
