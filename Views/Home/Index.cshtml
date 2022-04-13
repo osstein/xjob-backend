@@ -6,12 +6,12 @@
 }
 
 <div>
-    <h1 class="display-4">Meny</h1>
-
-
     @if (SignInManager.IsSignedIn(User))
-
     {
+        <h1 class="display-4">Meny</h1>
+
+
+
         <h2>Administration av Bashpoddens webbplats</h2>
         <nav class="admin-menu">
             <partial name="_adminNavPartial" />

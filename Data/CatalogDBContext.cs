@@ -22,4 +22,5 @@ public class CatalogDBContext : DbContext
     public DbSet<ProductSize>? ProductSize { get; set; }
     public DbSet<ProductType>? ProductType { get; set; }
     public DbSet<Episode>? Episode { get; set; }
+    public DbSet<Contactform>? Contactform { get; set; }
 }
