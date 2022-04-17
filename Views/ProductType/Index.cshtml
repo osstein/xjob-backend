@@ -10,12 +10,12 @@
 
 <head>
     <meta name="viewport" content="width=device-width" />
-    <title>Index</title>
+    <title>Produkttyper</title>
 </head>
 
 <body>
     <p>
-        <a asp-action="Create">Create New</a>
+        <a asp-action="Create">Skapa Ny</a>
     </p>
     <p><b>Antal objekt: </b>@ViewBag.count</p>
     <table class="table">
@@ -75,9 +75,9 @@
                         }
                     </td>
                     <td>
-                        <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                        <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                        <a asp-action="Delete" asp-route-id="@item.Id">Delete</a> |
+                        <a asp-action="Edit" asp-route-id="@item.Id">Ändra</a> |
+                        <a asp-action="Details" asp-route-id="@item.Id">Detaljer</a> |
+                        <a asp-action="Delete" asp-route-id="@item.Id">Ta bort</a> |
 
                         @foreach (var Size in ViewBag.Sizes)
                         {
@@ -91,7 +91,7 @@
                                         <a asp-controller="OrderProducts" asp-route-id="@item.Id" asp-route-color="@Color.Color"
                                             asp-route-size="@Size.Size" asp-route-productId="@item.Product.Id"
                                         asp-route-productName="@item.Product.Name" asp-route-productNumber="@item.Product.ProductNumber"
-                                        asp-action="Create">Add to order</a>
+                                        asp-action="Create">Lägg till på order</a>
                                     }
                                 }
                             }

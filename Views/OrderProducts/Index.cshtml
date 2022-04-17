@@ -10,7 +10,7 @@
 
 <head>
     <meta name="viewport" content="width=device-width" />
-    <title>Index</title>
+    <title>Order Produkter</title>
 </head>
 
 <body>
@@ -71,8 +71,8 @@
                         @Html.DisplayFor(modelItem => item.Order.OrderNumber)
                     </td>
                     <td>
-                        <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                        <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                        <a asp-action="Details" asp-route-id="@item.Id">Detaljer</a> |
+                        <a asp-action="Delete" asp-route-id="@item.Id">Ta bort</a>
                     </td>
                 </tr>
             }

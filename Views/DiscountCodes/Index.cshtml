@@ -10,17 +10,17 @@
 
 <head>
     <meta name="viewport" content="width=device-width" />
-    <title>Index</title>
+    <title>Rabattkoder</title>
 </head>
 
 <body>
     <p>
-        <a asp-action="Create">Create New</a>
+        <a asp-action="Create">Skapa ny</a>
     </p>
     @using (Html.BeginForm())
     {
         <p>
-            Find by Code name: @Html.TextBox("SearchString")
+            Sök på rabattkod: @Html.TextBox("SearchString")
             <input type="submit" value="Search" />
         </p>
     }
@@ -66,9 +66,9 @@
                         @Html.DisplayFor(modelItem => item.Timestamp)
                     </td>
                     <td>
-                        <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                        <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                        <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                        <a asp-action="Edit" asp-route-id="@item.Id">Ändra</a> |
+                        <a asp-action="Details" asp-route-id="@item.Id">Detaljer</a> |
+                        <a asp-action="Delete" asp-route-id="@item.Id">Ta bort</a>
                     </td>
                 </tr>
             }

@@ -10,18 +10,18 @@
 
 <head>
     <meta name="viewport" content="width=device-width" />
-    <title>Index</title>
+    <title>Produkter</title>
 </head>
 
 <body>
     <p>
-        <a asp-action="Create">Add New Product</a><br />
-        <a asp-controller="ProductImages" asp-action="Index">Add Product Images</a>
+        <a asp-action="Create">Lägg till produkt</a><br />
+        <a asp-controller="ProductImages" asp-action="Index">Lägg till produktbild</a>
     </p>
     @using (Html.BeginForm())
     {
         <p>
-            Search: @Html.TextBox("SearchString")
+            Sök: @Html.TextBox("SearchString")
             <input type="submit" value="Search" />
         </p>
     }
@@ -30,7 +30,7 @@
         <thead>
             <tr>
                 <th>
-                    Images
+                    Bilder
                 </th>
                 <th>
                     @Html.ActionLink("Name", "Index", new { sortOrder = ViewBag.NameSortParm })
@@ -121,13 +121,13 @@
                         @Html.DisplayFor(modelItem => item.Timestamp)
                     </td>
                     <td>
-                        <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                        <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                        <a asp-action="Delete" asp-route-id="@item.Id">Delete</a><br>
+                        <a asp-action="Edit" asp-route-id="@item.Id">Ändra</a> |
+                        <a asp-action="Details" asp-route-id="@item.Id">Detaljer</a> |
+                        <a asp-action="Delete" asp-route-id="@item.Id">Ta bort</a><br>
                         <a asp-controller="ProductType" asp-route-id="@item.Id" asp-route-name="@item.Name"
-                        asp-action="Index">Show Types</a><br>
+                        asp-action="Index">Visa Typer</a><br>
                         <a asp-controller="ProductProperties" asp-route-id="@item.Id" asp-route-name="@item.Name"
-                        asp-action="Index">Show Properties</a><br>
+                        asp-action="Index">Visa attribut</a><br>
 
                     </td>
                 </tr>
