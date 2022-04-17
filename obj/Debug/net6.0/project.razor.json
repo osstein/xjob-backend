@@ -16483,11 +16483,6 @@
       "FileKind": "mvc"
     },
     {
-      "FilePath": "c:\\xampp\\htdocs\\xjobb\\backend\\Views\\Home\\Report.cshtml",
-      "TargetPath": "Views\\Home\\Report.cshtml",
-      "FileKind": "mvc"
-    },
-    {
       "FilePath": "c:\\xampp\\htdocs\\xjobb\\backend\\Views\\ProductProperties\\Details.cshtml",
       "TargetPath": "Views\\ProductProperties\\Details.cshtml",
       "FileKind": "mvc"

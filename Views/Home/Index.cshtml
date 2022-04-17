@@ -9,13 +9,15 @@
     @if (SignInManager.IsSignedIn(User))
     {
         <h1 class="display-4">Meny</h1>
-
-
-
         <h2>Administration av Bashpoddens webbplats</h2>
         <nav class="admin-menu">
             <partial name="_adminNavPartial" />
         </nav>
-
+    }
+    else
+    {
+        <div class="front-image">
+            <img src="~/assets/headerbashmoreplash.jpg" alt="Bash logotyp skriven på en fisk med bläckskvätt runt fisken">
+        </div>
     }
 </div>

@@ -26,28 +26,7 @@ public class HomeController : Controller
         return View();
     }
 
-    public IActionResult Report()
-    {
-        var order = from Order in _context.Order select Order;
-
-        order.ToList();
-
-        decimal? totalAllTime = 0;
-        decimal? totalVatAllTime = 0;
-        decimal? totalDiscountAllTime = 0;
-        foreach (var item in order)
-        {
-            totalAllTime += item.PriceTotal;
-            totalVatAllTime += item.VatTotal;
-            totalDiscountAllTime += item.DiscountTotal;
-
-        }
-
-        ViewData["totalAllTime"] = totalAllTime;
-        ViewData["totalVatAllTime"] = totalVatAllTime;
-        ViewData["totalDiscountAllTime"] = totalDiscountAllTime;
-        return View();
-    }
+    
 
     [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
     public IActionResult Error()

@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "knb41Q/MwnahCLqnGO8iX/sA9qXfnlBZqFs9iHN7j0o=",
+  "Hash": "lLxPpoRnOhMBH2d1KAj2dDe9PLcJadz08EuT1KDec+0=",
   "Source": "backend",
   "BasePath": "_content/backend",
   "Mode": "Default",
@@ -1069,6 +1069,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "C:\\xampp\\htdocs\\xjobb\\backend\\obj\\Debug\\net6.0\\scopedcss\\projectbundle\\backend.bundle.scp.css"
+    },
+    {
+      "Identity": "C:\\xampp\\htdocs\\xjobb\\backend\\wwwroot\\assets\\headerbashmoreplash.jpg",
+      "SourceId": "backend",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\xampp\\htdocs\\xjobb\\backend\\wwwroot\\",
+      "BasePath": "_content/backend",
+      "RelativePath": "assets/headerbashmoreplash.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\assets\\headerbashmoreplash.jpg"
     },
     {
       "Identity": "C:\\xampp\\htdocs\\xjobb\\backend\\wwwroot\\css\\site.css",
