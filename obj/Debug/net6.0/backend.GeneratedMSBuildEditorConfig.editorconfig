@@ -8,329 +8,329 @@ build_property.PlatformNeutralAssembly =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = backend
 build_property.RootNamespace = backend
-build_property.ProjectDir = C:\xampp\htdocs\xjobb\backend\
+build_property.ProjectDir = c:\xampp\htdocs\xjobb\backend\
 build_property.RazorLangVersion = 6.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = C:\xampp\htdocs\xjobb\backend
+build_property.MSBuildProjectDirectory = c:\xampp\htdocs\xjobb\backend
 build_property._RazorSourceGeneratorDebug = 
 
-[C:/xampp/htdocs/xjobb/backend/Areas/Identity/Pages/Account/Login.cshtml]
+[c:/xampp/htdocs/xjobb/backend/Areas/Identity/Pages/Account/Login.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxMb2dpbi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/xampp/htdocs/xjobb/backend/Areas/Identity/Pages/Account/Register.cshtml]
+[c:/xampp/htdocs/xjobb/backend/Areas/Identity/Pages/Account/Register.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxSZWdpc3Rlci5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/xampp/htdocs/xjobb/backend/Areas/Identity/Pages/Account/_ViewImports.cshtml]
+[c:/xampp/htdocs/xjobb/backend/Areas/Identity/Pages/Account/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxfVmlld0ltcG9ydHMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/xampp/htdocs/xjobb/backend/Areas/Identity/Pages/_ValidationScriptsPartial.cshtml]
+[c:/xampp/htdocs/xjobb/backend/Areas/Identity/Pages/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcX1ZhbGlkYXRpb25TY3JpcHRzUGFydGlhbC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/xampp/htdocs/xjobb/backend/Areas/Identity/Pages/_ViewImports.cshtml]
+[c:/xampp/htdocs/xjobb/backend/Areas/Identity/Pages/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/xampp/htdocs/xjobb/backend/Areas/Identity/Pages/_ViewStart.cshtml]
+[c:/xampp/htdocs/xjobb/backend/Areas/Identity/Pages/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/xampp/htdocs/xjobb/backend/Views/CatalogCategories/Create.cshtml]
+[c:/xampp/htdocs/xjobb/backend/Views/CatalogCategories/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2F0YWxvZ0NhdGVnb3JpZXNcQ3JlYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/xampp/htdocs/xjobb/backend/Views/CatalogCategories/Delete.cshtml]
+[c:/xampp/htdocs/xjobb/backend/Views/CatalogCategories/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2F0YWxvZ0NhdGVnb3JpZXNcRGVsZXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/xampp/htdocs/xjobb/backend/Views/CatalogCategories/Details.cshtml]
+[c:/xampp/htdocs/xjobb/backend/Views/CatalogCategories/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2F0YWxvZ0NhdGVnb3JpZXNcRGV0YWlscy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/xampp/htdocs/xjobb/backend/Views/CatalogCategories/Edit.cshtml]
+[c:/xampp/htdocs/xjobb/backend/Views/CatalogCategories/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2F0YWxvZ0NhdGVnb3JpZXNcRWRpdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/xampp/htdocs/xjobb/backend/Views/CatalogCategories/Index.cshtml]
+[c:/xampp/htdocs/xjobb/backend/Views/CatalogCategories/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2F0YWxvZ0NhdGVnb3JpZXNcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/xampp/htdocs/xjobb/backend/Views/CatalogSubCategories/Create.cshtml]
+[c:/xampp/htdocs/xjobb/backend/Views/CatalogSubCategories/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2F0YWxvZ1N1YkNhdGVnb3JpZXNcQ3JlYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/xampp/htdocs/xjobb/backend/Views/CatalogSubCategories/Delete.cshtml]
+[c:/xampp/htdocs/xjobb/backend/Views/CatalogSubCategories/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2F0YWxvZ1N1YkNhdGVnb3JpZXNcRGVsZXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/xampp/htdocs/xjobb/backend/Views/CatalogSubCategories/Details.cshtml]
+[c:/xampp/htdocs/xjobb/backend/Views/CatalogSubCategories/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2F0YWxvZ1N1YkNhdGVnb3JpZXNcRGV0YWlscy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/xampp/htdocs/xjobb/backend/Views/CatalogSubCategories/Edit.cshtml]
+[c:/xampp/htdocs/xjobb/backend/Views/CatalogSubCategories/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2F0YWxvZ1N1YkNhdGVnb3JpZXNcRWRpdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/xampp/htdocs/xjobb/backend/Views/CatalogSubCategories/Index.cshtml]
+[c:/xampp/htdocs/xjobb/backend/Views/CatalogSubCategories/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2F0YWxvZ1N1YkNhdGVnb3JpZXNcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/xampp/htdocs/xjobb/backend/Views/DiscountCodes/Create.cshtml]
+[c:/xampp/htdocs/xjobb/backend/Views/DiscountCodes/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGlzY291bnRDb2Rlc1xDcmVhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/xampp/htdocs/xjobb/backend/Views/DiscountCodes/Delete.cshtml]
+[c:/xampp/htdocs/xjobb/backend/Views/DiscountCodes/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGlzY291bnRDb2Rlc1xEZWxldGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/xampp/htdocs/xjobb/backend/Views/DiscountCodes/Details.cshtml]
+[c:/xampp/htdocs/xjobb/backend/Views/DiscountCodes/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGlzY291bnRDb2Rlc1xEZXRhaWxzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/xampp/htdocs/xjobb/backend/Views/DiscountCodes/Edit.cshtml]
+[c:/xampp/htdocs/xjobb/backend/Views/DiscountCodes/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGlzY291bnRDb2Rlc1xFZGl0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/xampp/htdocs/xjobb/backend/Views/DiscountCodes/Index.cshtml]
+[c:/xampp/htdocs/xjobb/backend/Views/DiscountCodes/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGlzY291bnRDb2Rlc1xJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/xampp/htdocs/xjobb/backend/Views/Episode/Create.cshtml]
+[c:/xampp/htdocs/xjobb/backend/Views/Episode/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXBpc29kZVxDcmVhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/xampp/htdocs/xjobb/backend/Views/Episode/Delete.cshtml]
+[c:/xampp/htdocs/xjobb/backend/Views/Episode/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXBpc29kZVxEZWxldGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/xampp/htdocs/xjobb/backend/Views/Episode/Details.cshtml]
+[c:/xampp/htdocs/xjobb/backend/Views/Episode/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXBpc29kZVxEZXRhaWxzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/xampp/htdocs/xjobb/backend/Views/Episode/Edit.cshtml]
+[c:/xampp/htdocs/xjobb/backend/Views/Episode/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXBpc29kZVxFZGl0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/xampp/htdocs/xjobb/backend/Views/Episode/Index.cshtml]
+[c:/xampp/htdocs/xjobb/backend/Views/Episode/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXBpc29kZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/xampp/htdocs/xjobb/backend/Views/Home/Index.cshtml]
+[c:/xampp/htdocs/xjobb/backend/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/xampp/htdocs/xjobb/backend/Views/Home/Privacy.cshtml]
+[c:/xampp/htdocs/xjobb/backend/Views/Home/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/xampp/htdocs/xjobb/backend/Views/News/Create.cshtml]
+[c:/xampp/htdocs/xjobb/backend/Views/News/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTmV3c1xDcmVhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/xampp/htdocs/xjobb/backend/Views/News/Delete.cshtml]
+[c:/xampp/htdocs/xjobb/backend/Views/News/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTmV3c1xEZWxldGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/xampp/htdocs/xjobb/backend/Views/News/Details.cshtml]
+[c:/xampp/htdocs/xjobb/backend/Views/News/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTmV3c1xEZXRhaWxzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/xampp/htdocs/xjobb/backend/Views/News/Edit.cshtml]
+[c:/xampp/htdocs/xjobb/backend/Views/News/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTmV3c1xFZGl0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/xampp/htdocs/xjobb/backend/Views/News/Index.cshtml]
+[c:/xampp/htdocs/xjobb/backend/Views/News/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTmV3c1xJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/xampp/htdocs/xjobb/backend/Views/OrderProducts/Create.cshtml]
+[c:/xampp/htdocs/xjobb/backend/Views/OrderProducts/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT3JkZXJQcm9kdWN0c1xDcmVhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/xampp/htdocs/xjobb/backend/Views/OrderProducts/Delete.cshtml]
+[c:/xampp/htdocs/xjobb/backend/Views/OrderProducts/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT3JkZXJQcm9kdWN0c1xEZWxldGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/xampp/htdocs/xjobb/backend/Views/OrderProducts/Details.cshtml]
+[c:/xampp/htdocs/xjobb/backend/Views/OrderProducts/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT3JkZXJQcm9kdWN0c1xEZXRhaWxzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/xampp/htdocs/xjobb/backend/Views/OrderProducts/Edit.cshtml]
+[c:/xampp/htdocs/xjobb/backend/Views/OrderProducts/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT3JkZXJQcm9kdWN0c1xFZGl0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/xampp/htdocs/xjobb/backend/Views/OrderProducts/Index.cshtml]
+[c:/xampp/htdocs/xjobb/backend/Views/OrderProducts/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT3JkZXJQcm9kdWN0c1xJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/xampp/htdocs/xjobb/backend/Views/Order/Create.cshtml]
+[c:/xampp/htdocs/xjobb/backend/Views/Order/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT3JkZXJcQ3JlYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/xampp/htdocs/xjobb/backend/Views/Order/Delete.cshtml]
+[c:/xampp/htdocs/xjobb/backend/Views/Order/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT3JkZXJcRGVsZXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/xampp/htdocs/xjobb/backend/Views/Order/Details.cshtml]
+[c:/xampp/htdocs/xjobb/backend/Views/Order/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT3JkZXJcRGV0YWlscy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/xampp/htdocs/xjobb/backend/Views/Order/Edit.cshtml]
+[c:/xampp/htdocs/xjobb/backend/Views/Order/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT3JkZXJcRWRpdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/xampp/htdocs/xjobb/backend/Views/Order/Index.cshtml]
+[c:/xampp/htdocs/xjobb/backend/Views/Order/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT3JkZXJcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/xampp/htdocs/xjobb/backend/Views/ProductColor/Create.cshtml]
+[c:/xampp/htdocs/xjobb/backend/Views/ProductColor/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdENvbG9yXENyZWF0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/xampp/htdocs/xjobb/backend/Views/ProductColor/Delete.cshtml]
+[c:/xampp/htdocs/xjobb/backend/Views/ProductColor/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdENvbG9yXERlbGV0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/xampp/htdocs/xjobb/backend/Views/ProductColor/Details.cshtml]
+[c:/xampp/htdocs/xjobb/backend/Views/ProductColor/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdENvbG9yXERldGFpbHMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/xampp/htdocs/xjobb/backend/Views/ProductColor/Edit.cshtml]
+[c:/xampp/htdocs/xjobb/backend/Views/ProductColor/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdENvbG9yXEVkaXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/xampp/htdocs/xjobb/backend/Views/ProductColor/Index.cshtml]
+[c:/xampp/htdocs/xjobb/backend/Views/ProductColor/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdENvbG9yXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/xampp/htdocs/xjobb/backend/Views/ProductImages/Create.cshtml]
+[c:/xampp/htdocs/xjobb/backend/Views/ProductImages/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdEltYWdlc1xDcmVhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/xampp/htdocs/xjobb/backend/Views/ProductImages/Delete.cshtml]
+[c:/xampp/htdocs/xjobb/backend/Views/ProductImages/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdEltYWdlc1xEZWxldGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/xampp/htdocs/xjobb/backend/Views/ProductImages/Details.cshtml]
+[c:/xampp/htdocs/xjobb/backend/Views/ProductImages/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdEltYWdlc1xEZXRhaWxzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/xampp/htdocs/xjobb/backend/Views/ProductImages/Edit.cshtml]
+[c:/xampp/htdocs/xjobb/backend/Views/ProductImages/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdEltYWdlc1xFZGl0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/xampp/htdocs/xjobb/backend/Views/ProductImages/Index.cshtml]
+[c:/xampp/htdocs/xjobb/backend/Views/ProductImages/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdEltYWdlc1xJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/xampp/htdocs/xjobb/backend/Views/ProductProperties/Create.cshtml]
+[c:/xampp/htdocs/xjobb/backend/Views/ProductProperties/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdFByb3BlcnRpZXNcQ3JlYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/xampp/htdocs/xjobb/backend/Views/ProductProperties/Delete.cshtml]
+[c:/xampp/htdocs/xjobb/backend/Views/ProductProperties/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdFByb3BlcnRpZXNcRGVsZXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/xampp/htdocs/xjobb/backend/Views/ProductProperties/Details.cshtml]
+[c:/xampp/htdocs/xjobb/backend/Views/ProductProperties/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdFByb3BlcnRpZXNcRGV0YWlscy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/xampp/htdocs/xjobb/backend/Views/ProductProperties/Edit.cshtml]
+[c:/xampp/htdocs/xjobb/backend/Views/ProductProperties/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdFByb3BlcnRpZXNcRWRpdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/xampp/htdocs/xjobb/backend/Views/ProductProperties/Index.cshtml]
+[c:/xampp/htdocs/xjobb/backend/Views/ProductProperties/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdFByb3BlcnRpZXNcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/xampp/htdocs/xjobb/backend/Views/ProductSize/Create.cshtml]
+[c:/xampp/htdocs/xjobb/backend/Views/ProductSize/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdFNpemVcQ3JlYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/xampp/htdocs/xjobb/backend/Views/ProductSize/Delete.cshtml]
+[c:/xampp/htdocs/xjobb/backend/Views/ProductSize/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdFNpemVcRGVsZXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/xampp/htdocs/xjobb/backend/Views/ProductSize/Details.cshtml]
+[c:/xampp/htdocs/xjobb/backend/Views/ProductSize/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdFNpemVcRGV0YWlscy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/xampp/htdocs/xjobb/backend/Views/ProductSize/Edit.cshtml]
+[c:/xampp/htdocs/xjobb/backend/Views/ProductSize/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdFNpemVcRWRpdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/xampp/htdocs/xjobb/backend/Views/ProductSize/Index.cshtml]
+[c:/xampp/htdocs/xjobb/backend/Views/ProductSize/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdFNpemVcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/xampp/htdocs/xjobb/backend/Views/ProductType/Create.cshtml]
+[c:/xampp/htdocs/xjobb/backend/Views/ProductType/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdFR5cGVcQ3JlYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/xampp/htdocs/xjobb/backend/Views/ProductType/Delete.cshtml]
+[c:/xampp/htdocs/xjobb/backend/Views/ProductType/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdFR5cGVcRGVsZXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/xampp/htdocs/xjobb/backend/Views/ProductType/Details.cshtml]
+[c:/xampp/htdocs/xjobb/backend/Views/ProductType/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdFR5cGVcRGV0YWlscy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/xampp/htdocs/xjobb/backend/Views/ProductType/Edit.cshtml]
+[c:/xampp/htdocs/xjobb/backend/Views/ProductType/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdFR5cGVcRWRpdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/xampp/htdocs/xjobb/backend/Views/ProductType/Index.cshtml]
+[c:/xampp/htdocs/xjobb/backend/Views/ProductType/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdFR5cGVcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/xampp/htdocs/xjobb/backend/Views/Product/Create.cshtml]
+[c:/xampp/htdocs/xjobb/backend/Views/Product/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdFxDcmVhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/xampp/htdocs/xjobb/backend/Views/Product/Delete.cshtml]
+[c:/xampp/htdocs/xjobb/backend/Views/Product/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdFxEZWxldGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/xampp/htdocs/xjobb/backend/Views/Product/Details.cshtml]
+[c:/xampp/htdocs/xjobb/backend/Views/Product/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdFxEZXRhaWxzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/xampp/htdocs/xjobb/backend/Views/Product/Edit.cshtml]
+[c:/xampp/htdocs/xjobb/backend/Views/Product/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdFxFZGl0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/xampp/htdocs/xjobb/backend/Views/Product/Index.cshtml]
+[c:/xampp/htdocs/xjobb/backend/Views/Product/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdFxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/xampp/htdocs/xjobb/backend/Views/Shared/Error.cshtml]
+[c:/xampp/htdocs/xjobb/backend/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/xampp/htdocs/xjobb/backend/Views/Shared/_adminNavPartial.cshtml]
+[c:/xampp/htdocs/xjobb/backend/Views/Shared/_adminNavPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9hZG1pbk5hdlBhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/xampp/htdocs/xjobb/backend/Views/Shared/_LoginPartial.cshtml]
+[c:/xampp/htdocs/xjobb/backend/Views/Shared/_LoginPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9Mb2dpblBhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/xampp/htdocs/xjobb/backend/Views/Shared/_ValidationScriptsPartial.cshtml]
+[c:/xampp/htdocs/xjobb/backend/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/xampp/htdocs/xjobb/backend/Views/_ViewImports.cshtml]
+[c:/xampp/htdocs/xjobb/backend/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/xampp/htdocs/xjobb/backend/Views/_ViewStart.cshtml]
+[c:/xampp/htdocs/xjobb/backend/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/xampp/htdocs/xjobb/backend/Views/Shared/_Layout.cshtml]
+[c:/xampp/htdocs/xjobb/backend/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-guihv28zom
