@@ -29,23 +29,23 @@
         <thead>
             <tr>
                 <th>
-                    @Html.ActionLink("Id", "Index", new { sortOrder = ViewBag.IdSortParm })
+                    @Html.ActionLink(@Html.DisplayNameFor(model => model.Id), "Index", new { sortOrder = ViewBag.IdSortParm })
                 </th>
                 <th>
-                    @Html.ActionLink("Status", "Index", new { sortOrder = ViewBag.STATUSSortParm })
+                    @Html.ActionLink(@Html.DisplayNameFor(model => model.Status), "Index", new { sortOrder = ViewBag.STATUSSortParm })
                 </th>
                 <th>
-                    @Html.ActionLink("Ordernumber", "Index", new { sortOrder = ViewBag.ONSortParm })
+                    @Html.ActionLink(@Html.DisplayNameFor(model => model.OrderNumber), "Index", new { sortOrder = ViewBag.ONSortParm })
                 </th>
                 <th>
-                    @Html.ActionLink("Receiptnumber", "Index", new { sortOrder = ViewBag.RNSortParm })
+                    @Html.ActionLink(@Html.DisplayNameFor(model => model.ReceiptNumber), "Index", new { sortOrder = ViewBag.RNSortParm })
                 </th>
                 <th>
-                    @Html.ActionLink("E-mail", "Index", new { sortOrder = ViewBag.MAILSortParm })
+                    @Html.ActionLink(@Html.DisplayNameFor(model => model.CustomerMail), "Index", new { sortOrder = ViewBag.MAILSortParm })
                 </th>
 
                 <th>
-                    @Html.ActionLink("Price", "Index", new { sortOrder = ViewBag.PRICESortParm })
+                    @Html.ActionLink(@Html.DisplayNameFor(model => model.PriceTotal), "Index", new { sortOrder = ViewBag.PRICESortParm })
                 </th>
                 <th>
                     @Html.DisplayNameFor(model => model.VatTotal)
@@ -58,10 +58,10 @@
                 </th>
 
                 <th>
-                    @Html.ActionLink("Payment", "Index", new { sortOrder = ViewBag.PAYMENTSortParm })
+                    @Html.ActionLink(@Html.DisplayNameFor(model => model.PaymentMethod), "Index", new { sortOrder = ViewBag.PAYMENTSortParm })
                 </th>
                 <th>
-                    @Html.ActionLink("Timestamp", "Index", new { sortOrder = ViewBag.DateSortParm })
+                    @Html.ActionLink(@Html.DisplayNameFor(model => model.Timestamp), "Index", new { sortOrder = ViewBag.DateSortParm })
                 </th>
 
                 <th></th>

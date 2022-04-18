@@ -22,16 +22,16 @@
         <thead>
             <tr>
                 <th>
-                    @Html.ActionLink("Amount", "Index", new { sortOrder = ViewBag.AmountSortParm })
+                    @Html.ActionLink(@Html.DisplayNameFor(model => model.Amount), "Index", new { sortOrder = ViewBag.AmountSortParm })
                 </th>
                 <th>
-                    @Html.ActionLink("Product", "Index", new { sortOrder = ViewBag.NameSortParm })
+                    @Html.ActionLink(@Html.DisplayNameFor(model => model.Product), "Index", new { sortOrder = ViewBag.NameSortParm })
                 </th>
                 <th>
-                    @Html.ActionLink("Color", "Index", new { sortOrder = ViewBag.ColorSortParm })
+                    @Html.ActionLink(@Html.DisplayNameFor(model => model.ProductColor), "Index", new { sortOrder = ViewBag.ColorSortParm })
                 </th>
                 <th>
-                    @Html.ActionLink("Size", "Index", new { sortOrder = ViewBag.SizeSortParm })
+                    @Html.ActionLink(@Html.DisplayNameFor(model => model.ProductSize), "Index", new { sortOrder = ViewBag.SizeSortParm })
                     
                 </th>
                 <th></th>

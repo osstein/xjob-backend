@@ -8,7 +8,7 @@ public class ProductSize
 {
     public int Id { get; set; }
     [Required]
-
+[Display(Name = "Storlek")]
     public string? Size { get; set; }
   
 

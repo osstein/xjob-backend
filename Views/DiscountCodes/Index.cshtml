@@ -29,19 +29,19 @@
         <thead>
             <tr>
                 <th>
-                    @Html.ActionLink("Code", "Index", new { sortOrder = ViewBag.CodeSortParm })
+                    @Html.ActionLink(@Html.DisplayNameFor(model => model.Code), "Index", new { sortOrder = ViewBag.CodeSortParm })
                 </th>
                 <th>
                     @Html.DisplayNameFor(model => model.Discount)
                 </th>
                 <th>
-                    @Html.ActionLink("Start", "Index", new { sortOrder = ViewBag.StartSortParm })
+                    @Html.ActionLink(@Html.DisplayNameFor(model => model.CampaignStart), "Index", new { sortOrder = ViewBag.StartSortParm })
                 </th>
                 <th>
-                    @Html.ActionLink("End", "Index", new { sortOrder = ViewBag.EndSortParm })
+                    @Html.ActionLink(@Html.DisplayNameFor(model => model.CampaignEnd), "Index", new { sortOrder = ViewBag.EndSortParm })
                 </th>
                 <th>
-                    @Html.ActionLink("Timestamp", "Index", new { sortOrder = ViewBag.TimestampSortParm })
+                    @Html.ActionLink(@Html.DisplayNameFor(model => model.Timestamp), "Index", new { sortOrder = ViewBag.TimestampSortParm })
                 </th>
                 <th></th>
             </tr>
