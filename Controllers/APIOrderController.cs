@@ -24,26 +24,7 @@ namespace backend.Controllers
             _context = context;
         }
 
-        // GET: api/APIOrder
-       /* [HttpGet]
-         public async Task<ActionResult<IEnumerable<Order>>> GetOrder()
-        {
-            return await _context.Order.Include(p => p.OrderProducts).ToListAsync();
-        }
-
-        // GET: api/APIOrder/5
-        [HttpGet("{id}")]
-        public async Task<ActionResult<Order>> GetOrder(int id)
-        {
-            var order = await _context.Order.FindAsync(id);
-
-            if (order == null)
-            {
-                return NotFound();
-            }
-
-            return order;
-        } */
+       
 
 
         // POST: api/APIOrder (OrderPostRequest? ?)

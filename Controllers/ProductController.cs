@@ -75,7 +75,7 @@ namespace backend.Controllers
                     catalogDBContext = catalogDBContext.OrderBy(s => s.Price);
                     break;
                 case "price_desc":
-                    catalogDBContext = catalogDBContext.OrderByDescending(s => s.ProductNumber);
+                    catalogDBContext = catalogDBContext.OrderByDescending(s => s.Price);
                     break; */
                 default:
                     catalogDBContext = catalogDBContext.OrderBy(s => s.Name);
