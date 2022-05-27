@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "lLxPpoRnOhMBH2d1KAj2dDe9PLcJadz08EuT1KDec+0=",
+  "Hash": "IQ7JUSNr1JmOVAJkedfyMiRvPLrzP4/zFruQWDhBgpk=",
   "Source": "backend",
   "BasePath": "_content/backend",
   "Mode": "Default",
@@ -1292,6 +1292,23 @@
       "OriginalItemSpec": "wwwroot\\favicon.ico"
     },
     {
+      "Identity": "C:\\xampp\\htdocs\\xjobb\\backend\\wwwroot\\images\\1633300587_Funny Meme2022052200365.png",
+      "SourceId": "backend",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\xampp\\htdocs\\xjobb\\backend\\wwwroot\\",
+      "BasePath": "_content/backend",
+      "RelativePath": "images/1633300587_Funny Meme2022052200365.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\1633300587_Funny Meme2022052200365.png"
+    },
+    {
       "Identity": "C:\\xampp\\htdocs\\xjobb\\backend\\wwwroot\\images\\7a8d60a83299595c6cb7963659d190c12022032345560.jpg",
       "SourceId": "backend",
       "SourceType": "Discovered",
@@ -1443,6 +1460,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\images\\DSCF0236 (2)2022032836278.jpg"
+    },
+    {
+      "Identity": "C:\\xampp\\htdocs\\xjobb\\backend\\wwwroot\\images\\DSCF0236 (2)2022050517938.jpg",
+      "SourceId": "backend",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\xampp\\htdocs\\xjobb\\backend\\wwwroot\\",
+      "BasePath": "_content/backend",
+      "RelativePath": "images/DSCF0236 (2)2022050517938.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\DSCF0236 (2)2022050517938.jpg"
     },
     {
       "Identity": "C:\\xampp\\htdocs\\xjobb\\backend\\wwwroot\\images\\f611e1fe47e19564cc2af8f62a53c93f2022032306790.jpg",
@@ -1681,6 +1715,40 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\images\\pexels-anna-shvets-45879552022032844017.jpg"
+    },
+    {
+      "Identity": "C:\\xampp\\htdocs\\xjobb\\backend\\wwwroot\\images\\pexels-anna-tarazevich-87583862022051702963.jpg",
+      "SourceId": "backend",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\xampp\\htdocs\\xjobb\\backend\\wwwroot\\",
+      "BasePath": "_content/backend",
+      "RelativePath": "images/pexels-anna-tarazevich-87583862022051702963.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\pexels-anna-tarazevich-87583862022051702963.jpg"
+    },
+    {
+      "Identity": "C:\\xampp\\htdocs\\xjobb\\backend\\wwwroot\\images\\pexels-buzzaart-9915112022051735464.jpg",
+      "SourceId": "backend",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\xampp\\htdocs\\xjobb\\backend\\wwwroot\\",
+      "BasePath": "_content/backend",
+      "RelativePath": "images/pexels-buzzaart-9915112022051735464.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\pexels-buzzaart-9915112022051735464.jpg"
     },
     {
       "Identity": "C:\\xampp\\htdocs\\xjobb\\backend\\wwwroot\\images\\pexels-cottonbro-40662962022041101963.jpg",
